@@ -1,0 +1,28 @@
+.widgetSm{
+    flex:1;
+    -webkit-box-shadow: 5px 5px 15px 5px #424242; 
+    box-shadow: 5px 5px 15px 5px #424242;
+    padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.widgetSmTitle{
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.widgetSmList{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 20px;
+}
+.nombrePrueba{
+    font-size: 25px;
+}
+.widgetSmListItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}

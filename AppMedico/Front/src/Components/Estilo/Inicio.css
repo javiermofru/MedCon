@@ -1,3 +1,7 @@
 .inicio{
     flex: 4;
 }
+.homeWidget{
+    display: flex;
+    margin: 20px;
+}

@@ -68,6 +68,7 @@ function Ajustes() {
                 <YAxis/>
                 <Line type="monotone" dataKey="Pacientes" strok="#5550bd"/>
                 <Tooltip/>
+                <Legend/>
                 <CartesianGrid stroke="#e0dfdf" strokeDasharray="5 5"/>
             </LineChart>
            
