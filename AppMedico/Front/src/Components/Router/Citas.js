@@ -1,7 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import { Button, Table } from "reactstrap";
+import "../Estilo/Citas.css";
 
-function Citas() {
+const Citas = () => {
+  const [style, setStyle] = useState("cont");
+  const changeStyle1 = () =>{
+    setStyle("llamar");
+  }
+  const changeStyle2 = () =>{
+    setStyle("atendido");
+  }
+  const changeStyle3 = () =>{
+    setStyle("atendiendo");
+  }
   return (
     <div>
       <h1>Citas</h1>
@@ -20,12 +31,18 @@ function Citas() {
           <td>xx</td>
           <td>xx</td>
           <td>
-            <Button>Atendido</Button>
-          </td>
+            <div className={style}>  <Button onClick={changeStyle1} className="llamar">Llamar</Button></div>
+            <div className={style}>  <Button onClick={changeStyle3} className="atendiendo">Atendiendo</Button></div>
+            <div className={style}>  <Button onClick={changeStyle2} className="cont">Atendido</Button></div>
+         </td> 
         </tbody>
       </Table>
     </div>
   );
 }
+
+
+
+
 
 export default Citas;
