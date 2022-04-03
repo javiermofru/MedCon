@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../Estilo/Notes.css" ;
 
 class Notes extends Component {
   constructor(props) {
@@ -38,17 +39,18 @@ class Notes extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="widgetLg">
         <div>
-          Add an Item...
+        <span className='notesTitle'>Notas</span>
           <br />
           <input
             type="text"
-            placeholder="Type item here..."
+            className='notesInput'
+            placeholder="Añade un recordatorio..."
             value={this.state.newItem}
             onChange={(e) => this.updateInput("newItem", e.target.value)}
           />
-          <button onClick={() => this.addItem()}>Add</button>
+          <button   className='notesButton' onClick={() => this.addItem()}>Añadir</button>
           <br />
           <ul>
             {this.state.list.map((item) => {

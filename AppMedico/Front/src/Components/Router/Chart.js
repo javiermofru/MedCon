@@ -63,7 +63,7 @@ function Ajustes() {
         <div className="chart">
            <h3 className='tittle'>Datos de hoy</h3>
            <ResponsiveContainer width="100%" aspect={4 / 1}>
-            <LineChart data={data}>
+            <LineChart className="graf" data={data}>
                 <XAxis dataKey="name" strok="#5550bd"/>
                 <YAxis/>
                 <Line type="monotone" dataKey="Pacientes" strok="#5550bd"/>

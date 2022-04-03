@@ -2,7 +2,7 @@ import React from 'react';
 import "../Estilo/Inicio.css" 
 import Info from "./Info.js"
 import Chart from "./Chart.js"
-import WidgetLg from './WidgetLg';
+import Notes from './Notes';
 import WidgetSm from './WidgetSm';
 
 function Inicio() {
@@ -13,7 +13,7 @@ function Inicio() {
            <Chart/>
            <div className="homeWidget"> 
             <WidgetSm/>
-            <WidgetLg/>
+            <Notes />
            </div>
         </div>
     );

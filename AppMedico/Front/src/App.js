@@ -23,7 +23,7 @@ function App() {
   <div className='App'>
     <Router>
 
-      <SideMenu onCollapse={(inactive) => {
+      <SideMenu className='menu' onCollapse={(inactive) => {
         console.log(inactive);
         setInactive(inactive);
       }} />
