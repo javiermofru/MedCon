@@ -1,0 +1,31 @@
+.cuadro{
+    background-color: white;
+    padding: 20px;
+}
+
+p{
+    color:black;
+    max-width: 400px;
+    text-align: center;
+    margin-left: 15px;
+}
+
+button.btn.btn-success{
+    font-size: large;
+    padding: 15px;
+    margin: 15px;
+}
+
+input#username{
+    padding: 15px;
+    font-size: large;
+}
+
+#login{
+    justify-content: center;
+}
+
+.consulta{
+    margin: 15px;
+    padding: 20px;
+}
