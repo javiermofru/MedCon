@@ -12,6 +12,8 @@ import { Button } from 'react-bootstrap';
 import Home from './Componentes/Home';
 import Footer from './Componentes/Footer'
 import Error from './Componentes/Error';
+import CitasPaciente from './Componentes/CitasPaciente';
+import Login from './Componentes/Login';
 
 function App() {
   return (
@@ -35,8 +37,10 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="home" element={<Home/>} />
+      <Route path="citasPaciente" element={<CitasPaciente/>} />
       <Route path="codigo" element={<Codigo/>} />
       <Route path="error" element={<Error/>} />
+      <Route path="login" element={<Login/>} />
 
     </Routes>
   </BrowserRouter>
