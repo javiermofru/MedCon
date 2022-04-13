@@ -1,0 +1,63 @@
+.pacienteLogin {
+    border: none;
+    margin: 4%;
+    position: absolute;
+    top:0;
+    margin-top: 67px;
+    bottom: 0;
+    margin-bottom: 80px;
+    right: 0;
+    left: 0;
+    padding: 5%;
+    
+}
+
+.inicioPacienteLogin{
+    border: transparent;
+    float: left;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.grupoBotones {
+    border: none;
+    float: left;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    align-items: center;
+    vertical-align: middle;
+    font-size: large;
+    
+}
+
+.botonInicio{
+    font-size:x-large;
+    background: #7EDB98;
+    font-size: large;
+    padding: 15px;
+    margin: 15px;
+    border: none;
+    border-radius: 0px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.botonInicio:hover{
+    background: #375840;
+   
+}
+
+.botonTitulo {
+    border: black solid;
+    width: max-content;
+    height: max-content;
+    vertical-align: middle;
+}
+
+

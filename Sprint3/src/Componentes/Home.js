@@ -1,26 +1,25 @@
-import logo from '../logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../Assets/codigo.css';
-import { Button } from 'react-bootstrap';
+import '../Assets/home.css';
+import { Button, Card } from 'react-bootstrap';
 function Home() {
   return (
-    <div className="Codigo">
-    <Button    
-    id='btn' 
-    href='codigo'>
-    
-    VER TICKET
-    
-    </Button>
+    <div className='home'>
+      <div className='inicio'>
+        <Card className="text-center">
+        <Card.Header>Bienvenido</Card.Header>
+        <Card.Body>
+          <Card.Title>IDENTIFICACIÓN</Card.Title>
+          <Card.Text>
+            Identifíquese para conocer sus datos.
+          </Card.Text>
+          <div className='btn-group-vertical'>
+            <Button href='paciente/login' variant="primary" className='btn btn-success btn-lg mt-2 rounded-0'>Paciente</Button>
+            <Button variant="medico/login" className='btn btn-success btn-lg mt-2 rounded-0'>Médico</Button>
+          </div>
+        </Card.Body>
+      </Card> 
+      </div>
 
-    <Button    
-    className='btn btn-danger btn-lg'
-    href='error'>
-    
-    NO HAY CITAS
-    
-    </Button>
-      
     </div>
   );
 }

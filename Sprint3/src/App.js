@@ -21,7 +21,7 @@ function App() {
     
       <Navbar className='bg-light'>
         <Container>
-          <Navbar.Brand href="home">
+          <Navbar.Brand href="/">
           
         <img
             alt=""
@@ -40,7 +40,7 @@ function App() {
       <Route path="citasPaciente" element={<CitasPaciente/>} />
       <Route path="codigo" element={<Codigo/>} />
       <Route path="error" element={<Error/>} />
-      <Route path="login" element={<Login/>} />
+      <Route path="paciente/login" element={<Login/>} />
 
     </Routes>
   </BrowserRouter>
