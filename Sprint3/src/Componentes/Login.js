@@ -3,6 +3,13 @@ import "../Assets/Login.css";
 import { Card} from "react-bootstrap";
 
 export default class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputValue: ''
+        };
+    }
+    
     render() {
         return (
             
@@ -18,8 +25,15 @@ export default class Login extends Component {
 
                             <form>
                                 <div className="form-group">
-                                    <input type="dni" className="form-control" id="inputDNI" placeholder="Introduzca su DNI"></input>
+                                    <input 
+                                        type="dni" 
+                                        className="form-control" 
+                                        id="inputDNI" 
+                                        placeholder="Introduzca su DNI">
+                                    
+                                    </input>
                                 </div>
+                                //En este href, hay que poner el dni introducido en el input de la línea anterior
                                 <a type="submit" className="btn btn-success mt-2" href="79120176S" role="button">Mostrar citas</a>
                                 
                             </form>
@@ -33,4 +47,5 @@ export default class Login extends Component {
             </div>
         );
     }
+    
 }
