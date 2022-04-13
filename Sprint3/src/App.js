@@ -8,7 +8,6 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 import Home from './Componentes/Home';
 import Footer from './Componentes/Footer'
 import Error from './Componentes/Error';
@@ -19,7 +18,7 @@ function App() {
   return (
     <div className="App">
     
-      <Navbar className='bg-light'>
+      <Navbar className='bg-gray-200 opacity-100'>
         <Container>
           <Navbar.Brand href="/">
           
@@ -30,7 +29,8 @@ function App() {
             height="30"
             className="d-inline-block align-top"
           />
-        MedCon
+        
+        <span >MedCon</span>  
         </Navbar.Brand>
       </Container>
     </Navbar>
