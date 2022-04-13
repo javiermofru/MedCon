@@ -33,7 +33,6 @@ export default class Login extends Component {
                                     
                                     </input>
                                 </div>
-                                //En este href, hay que poner el dni introducido en el input de la línea anterior
                                 <a type="submit" className="btn btn-success mt-2" href="79120176S" role="button">Mostrar citas</a>
                                 
                             </form>
