@@ -36,7 +36,7 @@ function App() {
     </Navbar>
     <BrowserRouter>
     <Routes>
-      <Route path="home" element={<Home/>} />
+      <Route path="/" element={<Home/>} />
       <Route path="citasPaciente" element={<CitasPaciente/>} />
       <Route path="codigo" element={<Codigo/>} />
       <Route path="error" element={<Error/>} />
