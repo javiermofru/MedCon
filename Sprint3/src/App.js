@@ -40,7 +40,7 @@ function App() {
       <Route path="citasPaciente" element={<CitasPaciente/>} />
       <Route path="codigo" element={<Codigo/>} />
       <Route path="error" element={<Error/>} />
-      <Route path="paciente/login" element={<Login/>} />
+      <Route path="paciente" element={<Login/>} />
 
     </Routes>
   </BrowserRouter>

@@ -4,6 +4,7 @@ import { Card} from "react-bootstrap";
 import { ReactDOM } from "react";
 import Inputdni from "./Inputdni";
 
+
 export default class Login extends React.Component {    
     render() {
         
@@ -14,8 +15,8 @@ export default class Login extends React.Component {
                     <Card className="text-center">
                         <Card.Header>Se ha registrado como paciente </Card.Header>
                         <Card.Body>
-                            <Card.Title>Bienvenido al centro de salud</Card.Title>
-                            <Card.Text>
+                            <Card.Title >Bienvenido al centro de salud</Card.Title>
+                            <Card.Text >
                             Para visualizar sus citas, introduzca su DNI
                             </Card.Text>
                             <Inputdni/>

@@ -1,6 +1,8 @@
 import React from "react";
 import "../Assets/Login.css";
 import {Link} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import 
 
 export default class Inputdni extends React.Component {
     state = {
@@ -28,6 +30,7 @@ export default class Inputdni extends React.Component {
           <Link 
           className="btn btn-success m-2"
           to={this.state.value}>
+          
           Mostar citas
           </Link>
         </form>
