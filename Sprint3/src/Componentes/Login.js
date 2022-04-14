@@ -1,41 +1,28 @@
-import React, { Component } from "react";
+import React, { Component, useRef } from "react";
 import "../Assets/Login.css";
 import { Card} from "react-bootstrap";
+import { ReactDOM } from "react";
+import Inputdni from "./Inputdni";
 
-export default class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            inputValue: ''
-        };
-    }
-    
+export default class Login extends React.Component {    
     render() {
+        
         return (
             
             <div className="pacienteLogin">
                 <div className="inicioPacienteLogin">
                     <Card className="text-center">
-                        <Card.Header>Se ha registrado como paciente</Card.Header>
+                        <Card.Header>Se ha registrado como paciente </Card.Header>
                         <Card.Body>
                             <Card.Title>Bienvenido al centro de salud</Card.Title>
                             <Card.Text>
                             Para visualizar sus citas, introduzca su DNI
                             </Card.Text>
+                            <Inputdni/>
 
-                            <form>
-                                <div className="form-group">
-                                    <input 
-                                        type="dni" 
-                                        className="form-control" 
-                                        id="inputDNI" 
-                                        placeholder="Introduzca su DNI">
-                                    
-                                    </input>
-                                </div>
-                                <a type="submit" className="btn btn-success mt-2" href="79120176S" role="button">Mostrar citas</a>
-                                
-                            </form>
+
+
+
 
 
                         
