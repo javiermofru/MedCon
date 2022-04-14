@@ -2,7 +2,7 @@ import React from "react";
 import "../Assets/Login.css";
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import 
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default class Inputdni extends React.Component {
     state = {
@@ -26,7 +26,11 @@ export default class Inputdni extends React.Component {
           
           <button
           className="btn btn-success m-2"
-          >OK</button>
+          >
+          
+          OK
+          
+          </button>
           <Link 
           className="btn btn-success m-2"
           to={this.state.value}>
