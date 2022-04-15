@@ -14,8 +14,10 @@ function Home() {
           </Card.Text>
           <div className='btn-group-vertical'>
             <Button href='paciente' variant="primary" className='btn btn-success btn-lg mt-2 rounded-0 '>Paciente</Button>
-            <Button variant="medico" className='btn btn-success btn-lg mt-2 rounded-0'>Médico</Button>
-          </div>
+            <Button href="medico" className='btn btn-success btn-lg mt-2 rounded-0'>Médico</Button>
+            <Button href="salaespera" className='btn btn-success btn-lg mt-2 rounded-0'>Sala de espera</Button>
+
+            </div>
         </Card.Body>
       </Card> 
       </div>

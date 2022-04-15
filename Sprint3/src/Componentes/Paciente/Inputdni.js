@@ -1,5 +1,5 @@
 import React from "react";
-import "../Assets/Login.css";
+import "../../Assets/Paciente/Login.css";
 import {Link} from 'react-router-dom'
 import { CheckCircle, ArrowRight} from 'react-bootstrap-icons'
 

@@ -9,9 +9,8 @@ let datos = JSON.parse(JSON.stringify(data));
 
 const Fecha = (props) => {
   return (
-    <div>
-    
-      <div className="container">
+    <div style={{backgroundColor: 'white'}}>
+          <div className="container">
         <div className="row">
           <div className="col-12">
             <table className="table table-bordered">
@@ -86,7 +85,7 @@ const Fecha = (props) => {
 export const CitasPaciente = (props) => {
   return (
     <Container>
-      <Table responsive cellpadding="20">
+      <Table responsive cellPadding="20">
         <thead>
           <Fechas />
         </thead>
@@ -96,3 +95,4 @@ export const CitasPaciente = (props) => {
   );
 };
 export default CitasPaciente;
+

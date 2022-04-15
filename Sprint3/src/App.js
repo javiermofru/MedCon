@@ -10,26 +10,26 @@ import {
 } from 'react-router-dom';
 import Home from './Componentes/Home';
 import Footer from './Componentes/Footer'
-import Login from './Componentes/Login';
+import Login from './Componentes/Paciente/Login';
 import Comprobacion from './Componentes/Comprobación'
 
 function App() {
   return (
     <div className="App">
     
-      <Navbar className='bg-gray-200 opacity-100'>
+      <Navbar className='bg-secondary opacity-100'>
         <Container>
           <Navbar.Brand href="/">
           
         <img
             alt=""
             src={logo}
-            width="30"
-            height="30"
+            width="50"
+            height="auto"
             className="d-inline-block align-top"
           />
         
-        <span >MedCon</span>  
+        <span className='text-white' >MedCon</span>  
         </Navbar.Brand>
       </Container>
     </Navbar>

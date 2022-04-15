@@ -1,8 +1,8 @@
-import React, { Component, useRef } from "react";
-import "../Assets/Login.css";
+import React from "react";
 import { Card} from "react-bootstrap";
-import { ReactDOM } from "react";
 import Inputdni from "./Inputdni";
+
+import "../../Assets/Paciente/Login.css";;
 
 export default class Login extends React.Component {    
     render() {
