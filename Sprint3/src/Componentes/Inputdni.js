@@ -19,8 +19,8 @@ export default class Inputdni extends React.Component {
           <input 
           className="form-control"
           placeholder="Introduzca su dni"
-          pattern="[0-9]{8}[A-Za-z]{1}" 
-          title="Debe poner 8 números y una letra"
+          pattern="[0-9]{8}[A-Z]{1}" 
+          title="Debe poner 8 números y una letra mayúscula"
           type="text" ref="textInput" />
           
           <button

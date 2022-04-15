@@ -20,32 +20,35 @@ function Codigo() {
     )
 }
   return (
-    <div className="Codigo">
-        <Card id='caja' className="border-top-0 ">
+    <div className="codigo">
+      <div className='codigoInicio'>
+    
+        <Card className='text-center' >
         
-        <Card.Body className='card card-block w-40 mx-auto '>
-            <Card.Title id='welcome'>BIENVENIDO, "NOMBRE-PACIENTE"</Card.Title>
-            <Card.Text id='info'>
+        <Card.Body >
+            <Card.Title>BIENVENIDO, "NOMBRE-PACIENTE"</Card.Title>
+            <Card.Text >
             SU CÓDIGO PARA SER ATENDIDO ES:
             </Card.Text>
            {getAleatorio()}
-            <Card.Text id='info'>
+            <Card.Text >
             ESPERE SU TURNO EN: 
             </Card.Text>
-            <Card.Title id='sala'>
+            <Card.Title >
             SALA DE ESPERA 8
             </Card.Title>
 
 
 
 
-            <Button id='btn' >IMPRIMIR</Button>
+            <Button >IMPRIMIR</Button>
             <Button href='home' id='btn'>VOLVER</Button>
 
         </Card.Body>
         
   </Card>
       
+    </div>
     </div>
   );
 }

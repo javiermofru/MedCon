@@ -13,6 +13,7 @@ import Footer from './Componentes/Footer'
 import Error from './Componentes/Error';
 import CitasPaciente from './Componentes/CitasPaciente';
 import Login from './Componentes/Login';
+import Comprobacion from './Componentes/Comprobación'
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
       <Route path="codigo" element={<Codigo/>} />
       <Route path="error" element={<Error/>} />
       <Route path="paciente" element={<Login/>} />
+      <Route path='comprobar' element={<Comprobacion/>}/>
 
     </Routes>
   </BrowserRouter>
