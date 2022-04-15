@@ -24,7 +24,7 @@ export default class Inputdni extends React.Component {
           type="text" ref="textInput" />
           
           <button
-          className="btn btn-success m-2"
+          className="btn btn-success btn-lg m-2"
           >
           <CheckCircle />
           
@@ -32,10 +32,10 @@ export default class Inputdni extends React.Component {
           
           </button>
           <Link 
-          className="btn btn-success m-2"
+          className="btn btn-success btn-lg m-2"
           to={this.state.value}>
           
-          Mostar citas
+          MOSTRAR CITAS
           </Link>
         </form>
       </div>

@@ -14,10 +14,10 @@ export default class Login extends React.Component {
                     <Card className="text-center">
                         <Card.Header>Se ha registrado como paciente </Card.Header>
                         <Card.Body>
-                            <Card.Title >
+                            <Card.Title className="display-3" >
                             Bienvenido al centro de salud
                             </Card.Title>
-                            <Card.Text >
+                            <Card.Text className='h4' >
                             Para visualizar sus citas, introduzca su DNI
                             </Card.Text>
                             <Inputdni/>
