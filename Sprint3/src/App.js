@@ -10,8 +10,6 @@ import {
 } from 'react-router-dom';
 import Home from './Componentes/Home';
 import Footer from './Componentes/Footer'
-import Error from './Componentes/Error';
-import CitasPaciente from './Componentes/CitasPaciente';
 import Login from './Componentes/Login';
 import Comprobacion from './Componentes/Comprobación'
 
@@ -38,11 +36,9 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="citasPaciente" element={<CitasPaciente/>} />
       <Route path="codigo" element={<Codigo/>} />
-      <Route path="error" element={<Error/>} />
       <Route path="paciente" element={<Login/>} />
-      <Route path='comprobar' element={<Comprobacion/>}/>
+      <Route path='citas' element={<Comprobacion/>}/>
 
     </Routes>
   </BrowserRouter>
