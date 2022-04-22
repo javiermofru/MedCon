@@ -12,6 +12,7 @@ import Home from './Componentes/Home';
 import Footer from './Componentes/Footer'
 import Login from './Componentes/Kiosko/Login';
 import Comprobacion from './Componentes/Comprobación'
+import CitasPaciente from './Componentes/Kiosko/CitasPaciente';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
       <Route path="codigo" element={<Codigo/>} />
       <Route path="paciente" element={<Login/>} />
       <Route path='citas' element={<Comprobacion/>}/>
+      <Route path="paciente/79120176S" element={<CitasPaciente/>} />
 
     </Routes>
   </BrowserRouter>
