@@ -37,10 +37,10 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="codigo" element={<Codigo/>} />
+      <Route path="paciente/:dni/codigo" element={<Codigo/>} />
       <Route path="paciente" element={<Login/>} />
       <Route path='citas' element={<Comprobacion/>}/>
-      <Route path="paciente/79120176S" element={<CitasPaciente/>} />
+      <Route path="paciente/:dni" element={<CitasPaciente/>} />
 
     </Routes>
   </BrowserRouter>

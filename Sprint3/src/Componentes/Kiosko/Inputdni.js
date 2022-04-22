@@ -24,6 +24,7 @@ export default class Inputdni extends React.Component {
           type="text" ref="textInput" />
           
           <button
+          
           className="btn btn-success btn-lg m-2"
           >
           <CheckCircle />
