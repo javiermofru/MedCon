@@ -13,7 +13,7 @@ function Home() {
             Identifíquese para conocer sus datos.
           </Card.Text>
           <div className='btn-group-vertical'>
-            <Button href='paciente' variant="primary" className='btn btn-success btn-lg mt-2 rounded-0 '>Paciente</Button>
+            <Button href='paciente' variant="primary" className='btn btn-success btn-lg mt-2 rounded-0 '>Kiosko</Button>
             <Button href="medico" className='btn btn-success btn-lg mt-2 rounded-0'>Médico</Button>
             <Button href="salaespera" className='btn btn-success btn-lg mt-2 rounded-0'>Sala de espera</Button>
 

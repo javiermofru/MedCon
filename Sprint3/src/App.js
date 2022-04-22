@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 import Home from './Componentes/Home';
 import Footer from './Componentes/Footer'
-import Login from './Componentes/Paciente/Login';
+import Login from './Componentes/Kiosko/Login';
 import Comprobacion from './Componentes/Comprobación'
 
 function App() {

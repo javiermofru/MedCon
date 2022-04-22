@@ -20,14 +20,7 @@ export default class Login extends React.Component {
                             <Card.Text className='h4' >
                             Para visualizar sus citas, introduzca su DNI
                             </Card.Text>
-                            <Inputdni/>
-
-
-
-
-
-
-                        
+                            <Inputdni/>                        
                         </Card.Body>
                     </Card> 
     

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Table } from "react-bootstrap";
-import "../Assets/CitasPaciente.css";
-import { data } from "../data/dataCitasPaciente.js";
+import "../../Assets/CitasPaciente.css";
+import { data } from "../../data/dataCitasPaciente.js";
 import { Card, Button } from 'react-bootstrap';
 
 
