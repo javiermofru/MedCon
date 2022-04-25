@@ -13,7 +13,8 @@ import Footer from './Componentes/Footer'
 import PacienteLogin from './Componentes/Kiosko/LoginPaciente';
 import Comprobacion from './Componentes/Comprobación'
 import CitasPaciente from './Componentes/Kiosko/CitasPaciente';
-import LoginMedico from './Componentes/Medico/LoginMedico'
+import LoginMedico from './Componentes/Medico/LoginMedico';
+import CitasMedico from './Componentes/Medico/CitasMedico';
 
 function App() {
   return (
@@ -43,6 +44,8 @@ function App() {
       <Route path='citas' element={<Comprobacion/>}/>
       <Route path="paciente/:dni" element={<CitasPaciente/>} />
       <Route path='medico' element={<LoginMedico/>}/>
+      <Route path="medico/:colegiado" element={<CitasMedico/>} />
+
 
     </Routes>
   </BrowserRouter>

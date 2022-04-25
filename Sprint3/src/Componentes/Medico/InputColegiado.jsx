@@ -26,7 +26,7 @@ export default class Inputdni extends React.Component {
           <input
           className="form-control mt-2"
           placeholder="Introduzca su contraseña"
-          type="text"
+          type="password"
           
           />
           
