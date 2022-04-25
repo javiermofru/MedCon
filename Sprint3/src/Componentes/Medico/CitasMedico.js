@@ -18,22 +18,22 @@ const Fecha = (props) => {
                 <tr>
                   <th scope="col">Día</th>
                   <th scope="col">Hora</th>
-                  <th scope="col">Médico</th>
+                  <th scope="col">Paciente</th>
                   <th scope="col">Seleccionar</th>
                 </tr>              
                 <tr>
                   <th scope="row">
-                    <span id="fechaNumero">{props.iden}</span>
+                    <span id="fechaNumero">{props.paciente}</span>
                     <br/><br/><br/><br/>                  
-                    <span id="MesAño">{props.fecha}</span>
+                    <span id="MesAño">{props.dia}</span>
                   </th>
                   <th scope="row" id="hora">
                     <br/>
-                    {props.hora}                  
+                    {props.mes}                  
                   </th>
                   <th scope="row" id="doctor">
                     <br/><br/><br/><br/>
-                    {props.doctor}
+                    {props.hora}
                   </th>
                   <th scope="row" id="asistir">
                     <br/><br/>
@@ -73,10 +73,11 @@ const Fecha = (props) => {
       return (
         <Fecha
           key={idx}
-          iden={arrDatos[0]}
-          fecha={arrDatos[1]}
-          hora={arrDatos[2]}
-          doctor={arrDatos[3]}
+          paciente={arrDatos[0]}
+          dia={arrDatos[1]}
+          mes={arrDatos[2]}
+          hora={arrDatos[3]}
+          
         />
       );
     });

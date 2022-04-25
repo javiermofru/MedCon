@@ -12,7 +12,7 @@ export default class Login extends React.Component {
             <div className="pacienteLogin">
                 <div className="inicioPacienteLogin">
                     <Card className="text-center">
-                        <Card.Header>Se ha registrado como paciente </Card.Header>
+                        <Card.Header>Kiosko</Card.Header>
                         <Card.Body>
                             <Card.Title className="display-3" >
                             Bienvenido al centro de salud
