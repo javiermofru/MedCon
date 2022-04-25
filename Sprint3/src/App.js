@@ -1,6 +1,6 @@
 import logo from './Assets/SaludMadrid.svg.png';
 import './App.css';
-import Codigo from './Componentes/Codigo';
+import Codigo from './Componentes/Kiosko/Codigo';
 import {Navbar, Container} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -10,9 +10,10 @@ import {
 } from 'react-router-dom';
 import Home from './Componentes/Home';
 import Footer from './Componentes/Footer'
-import Login from './Componentes/Kiosko/Login';
+import PacienteLogin from './Componentes/Kiosko/LoginPaciente';
 import Comprobacion from './Componentes/Comprobación'
 import CitasPaciente from './Componentes/Kiosko/CitasPaciente';
+import LoginMedico from './Componentes/Medico/LoginMedico'
 
 function App() {
   return (
@@ -38,9 +39,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="paciente/:dni/codigo" element={<Codigo/>} />
-      <Route path="paciente" element={<Login/>} />
+      <Route path="paciente" element={<PacienteLogin/>} />
       <Route path='citas' element={<Comprobacion/>}/>
       <Route path="paciente/:dni" element={<CitasPaciente/>} />
+      <Route path='medico' element={<LoginMedico/>}/>
 
     </Routes>
   </BrowserRouter>

@@ -1,8 +1,6 @@
-import logo from '../logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../Assets/codigo.css';
+import '../../Assets/codigo.css';
 import { Card, Button } from 'react-bootstrap';
-import {Route, Routes} from 'react-router-dom'
 import { useNavigate } from "react-router-dom"
 
 function Codigo() {

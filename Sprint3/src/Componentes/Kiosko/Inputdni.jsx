@@ -1,7 +1,6 @@
 import React from "react";
 import "../../Assets/Paciente/Login.css";
 import {Link} from 'react-router-dom'
-import { CheckCircle, ArrowRight} from 'react-bootstrap-icons'
 
 export default class Inputdni extends React.Component {
     state = {
@@ -23,14 +22,9 @@ export default class Inputdni extends React.Component {
           title="Debe poner 8 números y una letra mayúscula"
           type="text" ref="textInput" />
           
-          <button
-          
-          className="btn btn-success btn-lg m-2"
-          >
-          <CheckCircle />
-          
-          
-          
+          <button          
+          className="btn btn-success btn-lg m-2">
+          OK         
           </button>
           <Link 
           className="btn btn-success btn-lg m-2"
