@@ -13,7 +13,7 @@ export default class LoginMedico extends React.Component {
             <div className="pacienteLogin">
                 <div className="inicioPacienteLogin">
                     <Card className="text-center">
-                        <Card.Header>App médico </Card.Header>
+                        <Card.Header>App </Card.Header>
                         <Card.Body>
                             <Card.Title className="display-3" >
                             Bienvenido al portal Web MEDCON
