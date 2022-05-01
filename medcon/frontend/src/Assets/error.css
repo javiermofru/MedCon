@@ -1,0 +1,23 @@
+.Error {
+    border: transparent;
+    margin: 4%;
+    position: absolute;
+    top:0;
+    margin-top: 67px;
+    bottom: 0;
+    margin-bottom: 80px;
+    right: 0;
+    left: 0;
+    padding: 5%;
+    
+  }
+  
+  .ErrorInicio{
+    border: transparent;
+    float: left;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    vertical-align: middle;
+    text-align: center;
+  }
