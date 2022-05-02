@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState, useParams} from "react";
 import { Container, Table } from "react-bootstrap";
 import "../../Assets/CitasPaciente.css";
 import { data } from "../../data/dataCitasPaciente.js";
@@ -6,9 +6,25 @@ import { Card, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 
-let datos = JSON.parse(JSON.stringify(data));
+//let datos = JSON.parse(JSON.stringify(data));
+
+
+ 
+
 
 const Fecha = (props) => {
+  const {dni} = useParams();
+  const [citas, setCitas] = useState([]);
+
+  async function funcionCitas() {
+    const res = await fetch ('localhost:8080/pacientes/'+dni)
+    const myjson = await res.json();
+    setCitas(myjson);
+  }
+
+
+  funcionCitas();
+
   return (
     <div style={{backgroundColor: 'white'}}>
           <div className="container">
@@ -50,45 +66,30 @@ const Fecha = (props) => {
         </div>
       </div>
 
-
-    {/*}
-        <tr>
-          <td id="fechaNumero">{props.iden}</td>
-          <td id="hora" width="200">
-            {props.hora}
-          </td>
-          <td id="eliminar">
-          <Button id='boton1' href='home'>Volver</Button>        </td>
-        </tr>
-        <tr>
-          <td id="MesAño">{props.fecha}</td>
-          <td id="doctor">{props.doctor}</td>
-          <td id="asistir"> <Button id='btn1' href='codigo'>Asistir Cita</Button></td>
-  </tr> */}
       </div>
     );
   };
 
-  const Fechas = () => {
-    return datos.map((arrDatos, idx) => {
+/*   const Fechas = () => {
+    return citas.map((c, idx) => {
       return (
         <Fecha
           key={idx}
-          iden={arrDatos[0]}
-          fecha={arrDatos[1]}
-          hora={arrDatos[2]}
-          doctor={arrDatos[3]}
+          iden={c.id}
+          fecha={c.fecha}
+          hora={c.hora}
+          doctor={c.medico}
         />
       );
     });
-  };
+  };  */
 
 export const CitasPaciente = (props) => {
   return (
     <Container>
       <Table responsive cellPadding="20">
         <thead>
-          <Fechas />
+          {/* <Fechas /> */}
         </thead>
         <tbody></tbody>
       </Table>

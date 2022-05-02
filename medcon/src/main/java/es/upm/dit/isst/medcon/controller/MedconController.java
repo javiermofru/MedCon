@@ -28,12 +28,12 @@ public class MedconController {
         this.pacienteRepository = m;
     }
 
-    @GetMapping("/kiosko")
+    @GetMapping("/paciente")
     List<Paciente> readAll() {
       return (List<Paciente>) pacienteRepository.findAll();
     }
 
-    @GetMapping("/kiosko/{dni}")
+    @GetMapping("/paciente/{dni}")
     ResponseEntity <Paciente> read(@PathVariable String dni){
       return pacienteRepository.findById(dni).map(paciente ->
 
@@ -41,6 +41,11 @@ public class MedconController {
 
    ).orElse(new ResponseEntity<Paciente>(HttpStatus.NOT_FOUND));
 
+    }
+
+    @GetMapping("/salaespera")
+    List<Cita> findAll_by_salaEspera() {
+      return (List<Cita>) citaRepository.findAll();
     }
 
     // @GetMapping("/kiosko/{cita}")

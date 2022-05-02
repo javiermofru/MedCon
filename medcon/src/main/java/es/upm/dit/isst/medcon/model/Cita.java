@@ -19,7 +19,6 @@ public class Cita {
     private int sala_consulta;
     private int medico;
     private String paciente;
-    @Lob
     private boolean atendido;
 
     public Cita() {

@@ -8,6 +8,5 @@ import es.upm.dit.isst.medcon.model.Cita;
 
 public interface CitaRepository extends CrudRepository<Cita, String>{
     List<Cita> findByPaciente(String paciente);
-    //List<Cita> findBySala_Espera(Integer sala_espera);
 
 }
