@@ -14,7 +14,7 @@ export default function CitasPaciente(){
     fetch(`http://localhost:8080/paciente/${dni}`)
         .then(response => response.json())
         .then(response=> setCitas(response))
-    });
+    }, [500]);
     console.log(`http://localhost:8080/paciente/${dni}`)
     console.log(citas);
 
