@@ -1,11 +1,7 @@
 package es.upm.dit.isst.medcon.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Paciente {
@@ -13,18 +9,16 @@ public class Paciente {
     @Id
     private String dni;
     private String nombre;
-    private Boolean presente;
+    private String fechaNacimiento;
 
-    @OneToMany(mappedBy = "medico")
-    private Set<Cita> citas = new HashSet<>();
     
     public Paciente() {
     }
 
-    public Paciente(String dni, String nombre, Boolean presente) {
+    public Paciente(String dni, String nombre, String fechaNacimiento) {
         this.dni = dni;
         this.nombre = nombre;
-        this.presente = presente;
+        this.fechaNacimiento = fechaNacimiento;
     
     }
 
@@ -43,21 +37,13 @@ public class Paciente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public Set<Cita> getCitas() {
-        return citas;
-    }
-
-    public void setCitas(Set<Cita> citas) {
-        this.citas = citas;
-    }
     
-    public Boolean getPresente() {
-        return presente;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setNombre(Boolean presente) {
-        this.presente = presente;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
 

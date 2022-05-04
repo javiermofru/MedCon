@@ -14,31 +14,40 @@ public class Cita {
 
     private String fecha;
     private String hora; 
-    private Boolean atendido;
-
-    private int cipa;
+    private Boolean llamado;
+    private Boolean registrado;
+    private int medico;
     private String dni;
+    private String ticketTurno;
     
 
     public Cita() {
     }
 
 
-    public Cita(String id, String fecha, String hora, Boolean atendido, int cipa, String dni) {
+    public Cita(String id, String fecha, String hora, Boolean llamado, Boolean registrado, int medico, String dni) {
         this.id = id;
         this.fecha = fecha;
         this.hora = hora;
-        this.atendido= atendido;
-        this.cipa = cipa;
+        this.llamado = llamado;
+        this.registrado = registrado;
+        this.medico = medico;
         this.dni = dni;
     }
 
 
-    public boolean getAtendido() {
-        return atendido;
+    public boolean getLlamado() {
+        return llamado;
     }
-    public void setAtendido(Boolean atendido) {
-        this.atendido = atendido;
+    public void setLlamado(Boolean llamado) {
+        this.llamado = llamado;
+    }
+
+    public boolean getRegistrado() {
+        return registrado;
+    }
+    public void setRegistrado(Boolean registrado) {
+        this.registrado = registrado;
     }
 
     public String getId() {
@@ -70,13 +79,13 @@ public class Cita {
         this.hora = hora;
     }
 
-    public int getCipa() {
-        return cipa;
+    public int getMedico() {
+        return medico;
     }
 
 
-    public void setCipa(int cipa) {
-        this.cipa = cipa;
+    public void setMedico(int medico) {
+        this.medico = medico;
     }
 
     public String getDni() {
@@ -87,6 +96,13 @@ public class Cita {
         this.dni = dni;
     }
 
+    public String getTicketTurno() {
+        return ticketTurno;
+    }
+
+    public void setTicketTurno(String ticketTurno) {
+        this.ticketTurno = ticketTurno;
+    }
    
 
 }

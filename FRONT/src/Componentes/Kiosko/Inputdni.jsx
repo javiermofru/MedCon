@@ -5,6 +5,10 @@ import {Link} from 'react-router-dom'
 function Inputdni(){
   const [dni, setDNI] = useState('');
   //console.log({dni})
+
+  const parentToChild = () => {
+    setDNI(dni);
+  }
   
   return [
     <div>

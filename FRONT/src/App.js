@@ -12,7 +12,8 @@ import Home from './Componentes/Home';
 import Footer from './Componentes/Footer'
 import PacienteLogin from './Componentes/Kiosko/LoginPaciente';
 import Comprobacion from './Componentes/Comprobación'
-import CitasPaciente from './Componentes/Kiosko/CitasPaciente';
+//import CitasPaciente from './Componentes/Kiosko/CitasPaciente';
+import CitasPaciente from './Componentes/Kiosko/CitasPacientes2';
 import LoginMedico from './Componentes/Medico/LoginMedico';
 import CitasMedico from './Componentes/Medico/CitasMedico';
 
@@ -43,6 +44,8 @@ function App() {
       <Route path="paciente" element={<PacienteLogin/>} />
       <Route path='citas' element={<Comprobacion/>}/>
       <Route path="paciente/:dni" element={<CitasPaciente/>} />
+      <Route path="paciente/79120176S" element={<CitasPaciente/>} />
+
       <Route path='medico' element={<LoginMedico/>}/>
       <Route path="medico/:colegiado" element={<CitasMedico/>} />
 

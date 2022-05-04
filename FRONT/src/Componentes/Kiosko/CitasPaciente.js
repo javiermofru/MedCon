@@ -9,23 +9,10 @@ import { Link } from "react-router-dom";
 //let datos = JSON.parse(JSON.stringify(data));
 
 
- 
 
 
 const Fecha = (props) => {
-  const {dni} = useParams();
-  const [citas, setCitas] = useState([]);
-
-  async function funcionCitas() {
-    const res = await fetch ('localhost:8080/pacientes/'+dni)
-    const myjson = await res.json();
-    setCitas(myjson);
-  }
-
-
-  funcionCitas();
-
-  return (
+   return (
     <div style={{backgroundColor: 'white'}}>
           <div className="container">
         <div className="row">
@@ -85,6 +72,7 @@ const Fecha = (props) => {
   };  */
 
 export const CitasPaciente = (props) => {
+ 
   return (
     <Container>
       <Table responsive cellPadding="20">

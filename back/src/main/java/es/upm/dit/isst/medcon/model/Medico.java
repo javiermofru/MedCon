@@ -1,11 +1,8 @@
 package es.upm.dit.isst.medcon.model;
 
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Medico {
@@ -16,9 +13,7 @@ public class Medico {
     private String nombre;
     private int sala_consulta;
 
-    @OneToMany(mappedBy = "medico")
-    private Set<Cita> citas = new HashSet<>();
-
+    
     public Medico() {
     }
 
@@ -50,14 +45,6 @@ public class Medico {
 
     public void setSala_consulta(int sala_consulta) {
         this.sala_consulta = sala_consulta;
-    }
-
-    public Set<Cita> getCitas() {
-        return citas;
-    }
-
-    public void setCitas(Set<Cita> citas) {
-        this.citas = citas;
     }
 
     

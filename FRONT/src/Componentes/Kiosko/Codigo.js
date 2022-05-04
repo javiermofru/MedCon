@@ -6,15 +6,15 @@ import { useNavigate } from "react-router-dom"
 function Codigo() {
     let navigate = useNavigate();
     const getAleatorio = () => {
-    var aleatorio = Math.floor(1000*Math.random());
-    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let codigo = []
-    for (let i=0; i<3; i++){
-        codigo[i]=characters.charAt(Math.floor(Math.random()*25));
-        
-    }
-    codigo.push(aleatorio);
-    return( 
+      //Número de dos cifras
+      var aleatorio = Math.floor(88*Math.random()+11);  
+      //Cifra aleatoria
+      const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let codigo = []
+      codigo[0]=characters.charAt(Math.floor(Math.random()*25));        
+      codigo.push(aleatorio);
+      
+      return( 
         <Card.Title className='h1 display-2' id='code'>
         {codigo}
         </Card.Title>

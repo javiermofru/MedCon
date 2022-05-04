@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SpringBootReactApplication",
+            "request": "launch",
+            "mainClass": "es.upm.dit.isst.medcon.SpringBootReactApplication"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-SpringBootReactApplication<medcon1>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

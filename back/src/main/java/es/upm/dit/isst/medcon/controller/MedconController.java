@@ -5,10 +5,12 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.HttpStatus;
+//import org.springframework.http.HttpStatus;
 
 import es.upm.dit.isst.medcon.model.Paciente;
 import es.upm.dit.isst.medcon.model.Cita;
@@ -29,19 +31,19 @@ public class MedconController {
     
     public MedconController(CitaRepository c, PacienteRepository p, MedicoRepository m) {
         this.citaRepository = c;
-        c.save(new Cita("H25","30/3/2022", "12:30", false , 123456789, "53880976V" ));
-        c.save(new Cita("H65","28/3/2022", "12:30", false , 123456789, "53880978V" ));
-        c.save(new Cita("H85","17/3/2022", "12:30", false , 987654321, "53880979V" ));
-        c.save(new Cita("H96","30/3/2022", "11:30", false , 123412341, "53880975V" ));
-        c.save(new Cita("H34","30/3/2022", "12:00", false , 432143214, "53880976V" ));
+        c.save(new Cita("1","30/3/2022", "12:30", false , false , 123456789, "53880976V" ));
+        c.save(new Cita("2","28/3/2022", "12:30", false , false , 123456789, "53880978V" ));
+        c.save(new Cita("3","17/3/2022", "12:30", false , false ,987654321, "53880979V" ));
+        c.save(new Cita("4","30/3/2022", "11:30", false , false ,123412341, "53880975V" ));
+        c.save(new Cita("5","30/3/2022", "12:00", false , false , 432143214, "53880976V" ));
 
 
         this.pacienteRepository = p;
-        p.save(new Paciente("53880976V","Carlos Chinchilla", false));
-        p.save(new Paciente("53880978V","Cira Pozo", false));
-        p.save(new Paciente("53880979V","Javier Moreno", false));
-        p.save(new Paciente("53880975V","Alejandro Mariscal", false));
-        p.save(new Paciente("53880974V","Miguel Varas", false));
+        p.save(new Paciente("53880976V","Carlos Chinchilla", "30/3/1985"));
+        p.save(new Paciente("53880978V","Cira Pozo", "12/8/1994"));
+        p.save(new Paciente("53880979V","Javier Moreno", "24/10/2000"));
+        p.save(new Paciente("53880975V","Alejandro Mariscal", "3/2/1965"));
+        p.save(new Paciente("53880974V","Miguel Varas", "19/7/1999"));
     
 
         this.medicoRepository = m;
@@ -71,13 +73,26 @@ public class MedconController {
 
 
     @GetMapping("/cita/{dni}")
-    ResponseEntity<Cita> read(@PathVariable String id){
+    public List<Cita> read(@PathVariable String dni){
+      return citaRepository.findBydni(dni);
+    }
 
-    return citaRepository.findById(id).map(citas -> ResponseEntity.ok().body(citas)
+    
+ /*    @PutMapping("/cita/{id}")
+    public ResponseEntity updateClient(@PathVariable Long id, @RequestBody Cita cita) {
+        Cita currentCita = citaRepository.findById(id).orElseThrow(RuntimeException::new);
+        currentCita.setTicket(cita.getTicket());
+        currentCita = citaRepository.save(cita);
 
-    ).orElse(new ResponseEntity<Cita>(HttpStatus.NOT_FOUND));
+        return ResponseEntity.ok(currentCita);
+    } */
+    
+
+    @DeleteMapping("cita/{id}")
+    public ResponseEntity<Cita> deleteClient(@PathVariable int id) {
+      citaRepository.deleteById(Integer.toString(id));
+      return ResponseEntity.ok().build();
   }
-
 
     /* @GetMapping("/paciente/{dni}")
     ResponseEntity <Paciente> read(@PathVariable String dni){
