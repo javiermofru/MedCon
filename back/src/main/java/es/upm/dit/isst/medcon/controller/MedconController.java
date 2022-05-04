@@ -19,7 +19,7 @@ import es.upm.dit.isst.medcon.repository.CitaRepository;
 import es.upm.dit.isst.medcon.repository.PacienteRepository;
 import es.upm.dit.isst.medcon.repository.MedicoRepository;
 
-//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
 public class MedconController {
     private final CitaRepository citaRepository;
@@ -72,9 +72,14 @@ public class MedconController {
     }
 
 
-    @GetMapping("/cita/{dni}")
+    @GetMapping("/paciente/{dni}")
     public List<Cita> read(@PathVariable String dni){
       return citaRepository.findBydni(dni);
+    }
+
+    @GetMapping("/salaespera")
+    List<Cita> findAll_by_salaEspera() {
+      return (List<Cita>) citaRepository.findAll();
     }
 
     
@@ -104,10 +109,7 @@ public class MedconController {
 
     }
 
-    @GetMapping("/salaespera")
-    List<Cita> findAll_by_salaEspera() {
-      return (List<Cita>) citaRepository.findAll();
-    }
+    
  */
     // @GetMapping("/kiosko/{cita}")
     // List<Cita> readCitasSala(@PathVariable int sala_espera){

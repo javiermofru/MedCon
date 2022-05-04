@@ -1,35 +1,31 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 //import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 //import AppNavbar from './AppNavbar';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import Inputdni from './Inputdni';
 
 
-class CitasPaciente extends Component {
-    state = {
-        citas: []
-      };
+export default function CitasPaciente(){
+    const [citas, setCitas] = useState("");
+
+    let {dni} = useParams();
+
+    useEffect(() => {
+    fetch(`http://localhost:8080/paciente/${dni}`)
+        .then(response => response.json())
+        .then(response=> setCitas(response))
+    });
+    console.log(`http://localhost:8080/paciente/${dni}`)
+    console.log(citas);
+
+    return (
+        <div>
+                
+        </div>
+    )
     
-    async componentDidMount() {
-        const response = await fetch('localhost:8080/pacientes/'+dni);
-        const body = await response.json();
-        this.setState({citas: body});
-    }
- 
 
-    render() {
-        const {clients} = this.state;
-        return (
-            <div>
-            
-            </div>
-        )
-    }
-    
-
-    
 }
-export default CitasPaciente;
-
 //const dni = useParams();
     //const [citas, setCitas] = useState([]);
   

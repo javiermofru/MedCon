@@ -2,13 +2,58 @@ import React, {useState} from "react";
 import "../../Assets/Paciente/Login.css";
 import {Link} from 'react-router-dom'
 
-function Inputdni(){
+export default class Inputdni extends React.Component{
+
+  state = {
+    values : {
+      DNI:''
+    }
+  }
+
+
+  handleChange = e => {
+    this.setState({
+      values: {
+        ...this.state.values,
+        [e.target.name]: e.target.value
+      }
+    })
+  }
+
+  handleBlur = e => {
+    if(e.target.name === 'DNI') {
+      //alert(`Guardando DNI: ${this.state.values.DNI}`)
+    }
+  }
+
+  render () {
+    const backUrl='http://localhost:3000/paciente/'
+
+    return (
+      <div>
+      
+        <label>Valor DNI</label>
+        <input
+          type="text"
+          name="DNI"
+          value={this.state.values.A}
+          onChange={this.handleChange}
+          onBlur={this.handleBlur}
+        >
+        </input>
+        <Link to={{pathname: `/paciente/${this.state.values.DNI}`, query: {backUrl}}} >          Pincha aquí
+        </Link>
+      </div>
+    )
+  }
+
+
+}
+
+
+/* function Inputdni(){
   const [dni, setDNI] = useState('');
   //console.log({dni})
-
-  const parentToChild = () => {
-    setDNI(dni);
-  }
   
   return [
     <div>
@@ -48,7 +93,7 @@ function Inputdni(){
 }
 
 export default Inputdni;
-
+ */
 {/*export default class Inputdni extends React.Component {
     state = {
     value: ''
