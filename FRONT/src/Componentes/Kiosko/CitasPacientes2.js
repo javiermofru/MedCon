@@ -7,6 +7,7 @@ import Inputdni from './Inputdni';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCheck} from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
+import '../../Assets/CitasPaciente.css'
 
 export default function CitasPaciente(){
     const [citas, setCitas] = useState([]);
@@ -24,36 +25,39 @@ export default function CitasPaciente(){
 
 
     return (
-        <div className='container'>
-            <h1>Tabla de citas del paciente</h1>
-            <table className='table table-bordered'>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Llamado</th>
-                    <th>Registrar presencia</th>
-                </tr>
+        <div >
+            <div className='container mt-3 '>
+                <h1>Tabla de citas del paciente</h1>
+                <table id='citas'>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Llamado</th>
+                        <th>Registrar presencia</th>
+                    </tr>
 
-                {citas.map((data,index) => (
-                  <tr>
-                    <td>{data.fecha}</td>
-                    <td>{data.hora}</td>
-                    <td>{data.llamado ? 'SI' : 'NO'}</td>
-                    <td>
-                        <button 
-                            className='btn m-2 bg-success'
-                            onClick={() => navigate(`/paciente/codigo/${citas[index].id}`)}
-                            
-                        >
-                            <FontAwesomeIcon className='btn btn-success' icon={faCheck}/>
-
-                        </button>
+                    {citas.map((data,index) => (
                     
-                    </td>
-                  </tr>  
-                ))}
+                    <tr>
+                        <td>{data.fecha}</td>
+                        <td>{data.hora}</td>
+                        <td>{data.llamado ? 'SI' : 'NO'}</td>
+                        <td>
+                            <button 
+                                className='btn m-2 bg-success'
+                                onClick={() => navigate(`/paciente/codigo/${citas[index].id}`)}                      
+                                
+                            >
+                                <FontAwesomeIcon className='btn btn-success' icon={faCheck}/>
 
-            </table>
+                            </button>
+                        
+                        </td>
+                    </tr>  
+                    ))}
+
+                </table>
+            </div>
         </div>
     )
     

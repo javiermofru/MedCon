@@ -2,9 +2,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Assets/codigo.css';
 import { Card, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom"
+import { useState, useParams, useEffect } from 'react';
 
-function Codigo() {
-    let navigate = useNavigate();
+export default function Codigo() {
+    const navigate = useNavigate();
+/*       const [citas, setCitas] = useState([]);
+
+      let {citaId} = useParams();
+      
+
+      useEffect(() => {
+      fetch(`http://localhost:8080/paciente/${dni}`)
+          .then(response => response.json())
+          .then(response=> setCitas(response))
+      }, [500]);
+      console.log(`http://localhost:8080/paciente/${dni}`)
+      console.log(citas);
+ */
     const getAleatorio = () => {
       //Número de dos cifras
       var aleatorio = Math.floor(88*Math.random()+11);  
@@ -59,5 +73,3 @@ function Codigo() {
     </div>
   );
 }
-
-export default Codigo;
