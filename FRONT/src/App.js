@@ -11,7 +11,6 @@ import {
 import Home from './Componentes/Home';
 import Footer from './Componentes/Footer'
 import PacienteLogin from './Componentes/Kiosko/LoginPaciente';
-import Comprobacion from './Componentes/Comprobación'
 //import CitasPaciente from './Componentes/Kiosko/CitasPaciente';
 import CitasPaciente from './Componentes/Kiosko/CitasPacientes2';
 import LoginMedico from './Componentes/Medico/LoginMedico';
@@ -42,7 +41,6 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="paciente/:dni/codigo" element={<Codigo/>} />
       <Route path="paciente" element={<PacienteLogin/>} />
-      <Route path='citas' element={<Comprobacion/>}/>
       <Route path="paciente/:dni" element={<CitasPaciente/>} />
       <Route path="paciente/79120176S" element={<CitasPaciente/>} />
 

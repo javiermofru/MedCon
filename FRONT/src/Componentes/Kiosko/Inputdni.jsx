@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "../../Assets/Paciente/Login.css";
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 export default class Inputdni extends React.Component{
 
@@ -31,17 +31,30 @@ export default class Inputdni extends React.Component{
 
     return (
       <div>
-      
-        <label>Valor DNI</label>
-        <input
-          type="text"
-          name="DNI"
-          value={this.state.values.A}
-          onChange={this.handleChange}
-          onBlur={this.handleBlur}
-        >
-        </input>
-        <Link to={{pathname: `/paciente/${this.state.values.DNI}`, query: {backUrl}}} >          Pincha aquí
+        <form>
+          <div >
+            <label>
+              Introduzca su DNI
+            </label>
+            <input
+            className="form-control"
+            type="text"
+            name="DNI"
+            placeholder="Introduzca su DNI"
+            pattern="[0-9]{8}[A-Z]{1}"
+            title="Debe poner 8 números y una letra"
+            value={this.state.values.A}
+            onChange={this.handleChange}
+            onBlur={this.handleBlur}
+          >
+          </input>
+            </div>
+        </form>
+        <Link 
+          className="btn btn-success mt-2"
+        
+          to={{pathname: `/paciente/${this.state.values.DNI}`, query: {backUrl}}} >          
+          Aceptar
         </Link>
       </div>
     )

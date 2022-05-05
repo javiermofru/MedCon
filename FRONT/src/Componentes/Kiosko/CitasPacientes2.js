@@ -6,7 +6,7 @@ import Inputdni from './Inputdni';
 
 
 export default function CitasPaciente(){
-    const [citas, setCitas] = useState("");
+    const [citas, setCitas] = useState([]);
 
     let {dni} = useParams();
 
@@ -19,8 +19,26 @@ export default function CitasPaciente(){
     console.log(citas);
 
     return (
-        <div>
-                
+        <div className='container'>
+            <h1>Tabla de citas del paciente</h1>
+            <table className='table table-bordered'>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Llamado</th>
+                    <th>Registrar presencia</th>
+                </tr>
+
+                {citas.map(data => (
+                  <tr>
+                    <td>{data.fecha}</td>
+                    <td>{data.hora}</td>
+                    <td>{data.llamado}</td>
+                    <td>{data.registrado}</td>
+                  </tr>  
+                ))}
+
+            </table>
         </div>
     )
     
