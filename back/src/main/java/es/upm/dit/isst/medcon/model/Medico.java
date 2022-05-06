@@ -8,27 +8,26 @@ import javax.persistence.Id;
 public class Medico {
     
     @Id
-    private int CIPA;
+    private String colegiado;
 
     private String nombre;
-    private int sala_consulta;
+    
 
     
     public Medico() {
     }
 
-    public Medico(int CIPA, String nombre, int sala_consulta) {
-        this.CIPA = CIPA;
+    public Medico(String colegiado, String nombre) {
+        this.colegiado = colegiado;
         this.nombre = nombre;
-        this.sala_consulta = sala_consulta;
     }
 
-    public Integer getCIPA() {
-        return CIPA;
+    public String getColegiado() {
+        return colegiado;
     }
 
-    public void setCIPA(Integer cIPA) {
-        CIPA = cIPA;
+    public void setColegiado(String colegiado) {
+        this.colegiado = colegiado;
     }
 
     public String getNombre() {
@@ -38,16 +37,7 @@ public class Medico {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public int getSala_consulta() {
-        return sala_consulta;
-    }
-
-    public void setSala_consulta(int sala_consulta) {
-        this.sala_consulta = sala_consulta;
-    }
-
-    
+  
     
     
     

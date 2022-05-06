@@ -1,66 +1,74 @@
-import React from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Container, Table } from "react-bootstrap";
 import "../../Assets/CitasMedico.css";
 import { data } from "../../data/dataCitasMedico";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-let datos = JSON.parse(JSON.stringify(data));
+//let datos = JSON.parse(JSON.stringify(data));
 
-export const CitasMedico = () => {
+export default function CitasMedico() {
+  const [citas, setCitas] = useState([]);
+  const [paciente, setPaciente] = useState([]);
+  let {medico} = useParams();
+  console.log(medico)
+
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/medico/${medico}`)
+      .then((response) => response.json())
+      .then((response) => setCitas(response));
+    console.log(citas);
+  }, [500]);
+  console.log(`http://localhost:8080/medico/${medico}`)
+  console.log(citas);
   return (
     <div id="contenedor">
       <div>
+      <div class="btn-group btn-group-lg" role="group" aria-label="...">
+      </div>
         <h1>BIENVENIDO</h1>
       </div>
       <div className="container mt-3 ">
-        <h1>Tabla de citas del médico</h1>
+        <div>
+          <h1>Tabla de citas del médico</h1>
+          <Link className="btn btn-success" to="crear" id="añadir">
+            Añadir cita
+          </Link>
+          <Link className="btn btn-success" to="listapacientes" id="añadir">
+            Lista pacientes
+          </Link>
+          <Link className="btn btn-success" to="" id="añadir">
+            Lista citas
+          </Link>
+        </div>
         <table id="citas">
           <tr>
             <th>Nombre</th>
             <th>Hora</th>
             <th>Fecha</th>
-            <th>Llamar paciente</th>
+            <th></th>
+            <th></th>
           </tr>
 
-          {datos.map((data, index) => (
+          {citas.map((data, index) => (
             <tr>
-              <td>{data[0]}</td>
-              <td>{data[2]}</td>
-              <td>{data[1]}</td>
+              <td>{data.nombrePaciente}</td> 
+              <td>{data.hora}</td>
+              <td>{data.fecha}</td>
               <td>
                 <Link className="btn btn-success" to="codigo">
-                  Llamar paciente
+                  Llamar
+                </Link>
+              </td>
+              <td>
+                <Link className="btn btn-success" to="codigo" id="eliminar">
+                  X
                 </Link>
               </td>
             </tr>
           ))}
         </table>
       </div>
-      <div>
-        <h1>Añadir nueva cita</h1>
-        <form action="../form-result.php" target="_blank">
-          <p>
-            Nombre paciente</p>
-            <input type="text" name="nombre" class="field"/>
-          
-          <p>
-          DNI</p>
-            <input type="text" name="dni" class="field"/>
-          
-          <p>
-          Hora</p>
-            <input type="time" name="hora" class="field"/>
-          
-          <p>
-          Fecha </p>
-            <input type="date" name="fecha" class="field"/>
-         
-          <p>
-            <input type="submit" name="hora" placeholder="Añadir Cita" class="field"/>
-          </p>
-        </form>
-      </div>
     </div>
   );
-};
-export default CitasMedico;
+}

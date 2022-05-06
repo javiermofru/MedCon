@@ -1,7 +1,7 @@
 [
     {
         "dni":"79120176S" ,
-        "cipa":"111222333444555",
+        "colegiado":"111222333444555",
         "nombre":"Alejandro",
         "apellidos":"Mariscal Romero",
         "fechaNacimiento":"16/10/2000",
@@ -33,7 +33,7 @@
     },
     {
         "dni":"" ,
-        "cipa":"",
+        "colegiado":"",
         "nombre":"",
         "apellidos":"",
         "fechaNacimiento":"",
@@ -53,7 +53,7 @@
     },
     {
         "dni":"" ,
-        "cipa":"",
+        "colegiado":"",
         "nombre":"",
         "apellidos":"",
         "fechaNacimiento":"",

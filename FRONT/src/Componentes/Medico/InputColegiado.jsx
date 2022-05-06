@@ -4,42 +4,62 @@ import {Link} from 'react-router-dom'
 
 export default class Inputdni extends React.Component {
     state = {
-    value: ''
+    values: {
+      colegiado: ''
+    }
   }
-  handleSubmit = e => {
-    e.preventDefault();
-    this.setState({ value: this.refs.textInput.value})
-  };
+
+  handleChange = e => {
+    this.setState({
+      values: {
+        ...this.state.values,
+        [e.target.name]: e.target.value
+      }
+    })
+  }
+
+  handleBlur = e => {
+    if(e.target.name === 'colegiado') {
+      //alert(`Guardando DNI: ${this.state.values.DNI}`)
+    }
+  }
+
+
 
   render() {
+    const backUrl='http://localhost:3000/medico/'
+
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input 
-          className="form-control"
-          placeholder="Introduzca su número de colegiado"
-          pattern="[0-9]{9}" 
-          title="Debe poner 9 números"
-          type="text" 
-          ref="textInput" />
 
-          <input
+          id='input'
+          className="form-control"
+          type="text"
+          name="colegiado"
+          placeholder="Introduzca su Nº de colegiado"
+          pattern="[0-9]{9}"
+          title="Debe poner 9 números"
+          value={this.state.values.colegiado}
+          onChange={this.handleChange}
+          onBlur={this.handleBlur}
+        >
+        </input>
+        <input
           className="form-control mt-2"
           placeholder="Introduzca su contraseña"
           type="password"
           
-          />
-          
-          <button          
-          className="btn btn-success btn-lg m-2">
-          OK         
-          </button>
+          />   
           <Link 
-          className="btn btn-success btn-lg m-2"
-          to={this.state.value}>
+          className="btn btn-success mt-2"
+        
+          to={{pathname: `/medico/${this.state.values.colegiado}`, query: {backUrl}}} >          
+          Ver mis citas
+        </Link>
+   
           
-          MOSTRAR CITAS
-          </Link>
         </form>
       </div>
     );

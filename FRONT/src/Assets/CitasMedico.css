@@ -29,6 +29,10 @@
   
 }
 
+#eliminar{
+  background-color: rgba(255, 0, 0, 0.596);
+}
+
 #contenedor{
   background-color: white;
   position: relative;
@@ -42,6 +46,8 @@ form{
   color:999;
   border-radius: 5px;
   font-size: 0.6;
+  margin-bottom: 5%;
+  border-width:thick;
 }
 
 input,textarea{
@@ -52,4 +58,57 @@ input,textarea{
 .field{
   border:solid 1px #ccc;
   padding:6px;
+  width:200px;
 }
+.field:focus{
+  border-color: #04AA6D;
+}
+
+#hora1{
+  margin-top: 10%;
+}
+
+#formulario{
+ border-width:1px;
+ margin-bottom:10%;
+ }
+
+#añadir{
+  float:right;
+  display: inline;
+}
+#paciente{
+  margin-bottom:10%;
+}
+
+#pacientes {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse:collapse ;
+  width: 100%;
+  background-color: white;
+  border: solid 1px;
+}
+
+#pacientes td, #citas th {
+  border: 1px, solid black;
+  padding: 8px;
+
+}
+
+#pacientes tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#pacientes tr:hover {
+  background-color: #ddd;
+}
+
+#pacientes th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+  
+}
+

@@ -11,22 +11,25 @@ public class Cita {
     
     @Id
     private String id;
-
     private String fecha;
     private String hora; 
     private Boolean llamado;
     private Boolean registrado;
-    private int medico;
+    private String medico;
     private String dni;
     private String ticketTurno;
-     private String razon;
+    private String razon;
+    private int sala_consulta;
+    private String nombrePaciente;
+    
+    
     
 
     public Cita() {
     }
 
 
-    public Cita(String id, String fecha, String hora, Boolean llamado, Boolean registrado, int medico, String dni, String ticketTurno, String razon) {
+    public Cita(String id, String fecha, String hora, Boolean llamado, Boolean registrado, String medico, String dni, String ticketTurno, String razon, int sala_consulta, String nombrePaciente) {
         this.id = id;
         this.fecha = fecha;
         this.hora = hora;
@@ -36,6 +39,8 @@ public class Cita {
         this.dni = dni;
         this.ticketTurno = ticketTurno;
         this.razon = razon;
+        this.sala_consulta = sala_consulta;
+        this.nombrePaciente = nombrePaciente;
     }
 
 
@@ -82,12 +87,12 @@ public class Cita {
         this.hora = hora;
     }
 
-    public int getMedico() {
+    public String getMedico() {
         return medico;
     }
 
 
-    public void setMedico(int medico) {
+    public void setMedico(String medico) {
         this.medico = medico;
     }
 
@@ -113,6 +118,21 @@ public class Cita {
 
     public void setRazon(String razon) {
         this.razon = razon;
+    }
+        public int getSala_consulta() {
+        return sala_consulta;
+    }
+
+    public void setSala_consulta(int sala_consulta) {
+        this.sala_consulta = sala_consulta;
+    }
+     public void setnombrePaciente(String nombrePaciente) {
+        this.nombrePaciente = nombrePaciente;
+    }
+
+
+    public String getnombrePaciente() {
+        return nombrePaciente;
     }
     
 

@@ -1,5 +1,7 @@
 package es.upm.dit.isst.medcon.controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -32,11 +34,11 @@ public class MedconController {
     
     public MedconController(CitaRepository c, PacienteRepository p, MedicoRepository m) {
         this.citaRepository = c;
-        c.save(new Cita("1","30/3/2022", "12:30", false , false , 123456789, "53880976V", null, "Traumatología" ));
-        c.save(new Cita("2","28/3/2022", "12:30", false , false , 123456789, "53880978V", null, "Radilogía" ));
-        c.save(new Cita("3","17/3/2022", "12:30", false , false ,987654321, "53880979V", null, "Traumatología" ));
-        c.save(new Cita("4","30/3/2022", "11:30", false , false ,123412341, "53880975V", null, "Ginecología" ));
-        c.save(new Cita("5","30/3/2022", "12:00", false , false , 432143214, "53880976V", null, "Análisis" ));
+        c.save(new Cita("1","30/3/2022", "12:30", false , false , "123456789", "53880976V", null, "Traumatología" , 1,"Carlos Chinchilla"));
+        c.save(new Cita("2","28/3/2022", "12:30", false , false , "123456789", "53880978V", null, "Radilogía", 1 ,"Cira Pozo"));
+        c.save(new Cita("3","17/3/2022", "12:30", true , true ,"987654321", "53880979V", "P57", "Traumatología", 2 ,"Javier Moreno"));
+        c.save(new Cita("4","30/3/2022", "11:30", true , true ,"123412341", "53880975V", "Q93", "Ginecología",2,"Alejandro Mariscal" ));
+        c.save(new Cita("5","30/3/2022", "12:00", true , true , "432143214", "53880976V", "J42", "Análisis",1,"Carlos Chinchilla" ));
 
 
         this.pacienteRepository = p;
@@ -48,10 +50,10 @@ public class MedconController {
     
 
         this.medicoRepository = m;
-        m.save(new Medico( 123456789 ,"Carlos Chinchilla", 1));
-        m.save(new Medico( 987654321 ,"Cira Pozo", 1));
-        m.save(new Medico( 123412341 ,"Javier Moreno", 2));
-        m.save(new Medico( 432143214 ,"Alejandro Mariscal", 2));
+        m.save(new Medico( "123456789" ,"Carlos Chinchilla"));
+        m.save(new Medico( "987654321" ,"Cira Pozo"));
+        m.save(new Medico( "123412341" ,"Javier Moreno"));
+        m.save(new Medico( "432143214" ,"Alejandro Mariscal"));
 
     }
 
@@ -61,9 +63,9 @@ public class MedconController {
 
     }
 
-    @GetMapping("/medicos")
-    public List<Medico> getAllMedicos() {
-      return (List<Medico>)medicoRepository.findAll();
+    @GetMapping("/medico")
+    public List<Cita> getAllCitasMedico() {
+      return (List<Cita>)citaRepository.findAll();
 
     }
 
@@ -77,11 +79,38 @@ public class MedconController {
     public List<Cita> read(@PathVariable String dni){
       return citaRepository.findBydni(dni);
     }
+    
+    @GetMapping("/medico/{medico}")
+    public List<Cita> citasMedico(@PathVariable String medico){
+      return citaRepository.findBymedico(medico);
+    }
 
     @GetMapping("/salaespera")
     List<Cita> findAll_by_salaEspera() {
-      return (List<Cita>) citaRepository.findAll();
+      var citas = new ArrayList<Cita>();
+      var resultado = new ArrayList<Cita>();
+      citaRepository.findAll().forEach(citas::add);
+
+      for(Cita cita:citas){
+        if(cita.getLlamado()==true) resultado.add(cita);
+      }
+      return resultado;
     }
+    
+
+    @GetMapping("/medico/cita/{id}")
+    List<Paciente> tablaMedico(@PathVariable String id){
+      Cita cita = citaRepository.findById(id).get();
+      String dni = cita.getDni();
+      
+      return pacienteRepository.findBydni(dni);
+
+
+    }
+    
+
+
+
 
     @PostMapping("/paciente/codigo/{id}")
     ResponseEntity<Cita> registraTicket(@PathVariable String id, @RequestBody String c) {
@@ -108,53 +137,52 @@ public class MedconController {
 
         return ResponseEntity.ok(currentCita);
     } */
- /*    @PutMapping("/medico/{id}")
 
-    public ResponseEntity<Cita> update(@RequestBody Cita newCita, @PathVariable String id) {
+   @PutMapping("/medico/{colegiado}/crear")
+    public ResponseEntity<Cita> newCita(@RequestBody Cita newCita) {
+      
+      Cita cita = new Cita();
 
-      return citaRepository.findById(id).map(cita -> {
+      cita.setId(newCita.getId());
 
-        cita.setId(newCita.getId());
+      cita.setFecha(newCita.getFecha());
 
-        cita.setFecha(newCita.getFecha());
+      cita.setHora(newCita.getHora());
 
-        cita.setHora(newCita.getHora());
+      cita.setLlamado(newCita.getLlamado());
 
-        cita.setLlamado(newCita.getLlamado());
+      cita.setRegistrado(newCita.getRegistrado());
 
-        cita.setRegistrado(newCita.getRegistrado());
+      cita.setMedico(newCita.getMedico());
+      cita.setDni(newCita.getDni());
+      cita.setTicketTurno(newCita.getTicketTurno());
+      cita.setRazon(newCita.getRazon());
 
-        cita.setMedico(newCita.getMedico());
-        cita.setDni(newCita.getDni());
-        cita.setTicketTurno(newCita.getTicketTurno());
+      citaRepository.save(cita);
 
-        citaRepository.save(cita);
+      return ResponseEntity.ok().body(cita);
 
-        return ResponseEntity.ok().body(tfg);
-
-      }).orElse(new ResponseEntity<Cita>(HttpStatus.NOT_FOUND));
-
-    } */
+    }
     
 
-    @DeleteMapping("cita/{id}")
+    @DeleteMapping("/medico/{colegiado}/{id}")
     public ResponseEntity<Cita> deleteClient(@PathVariable int id) {
       citaRepository.deleteById(Integer.toString(id));
       return ResponseEntity.ok().build();
-  }
+    }
 
-    /* @GetMapping("/paciente/{dni}")
-    ResponseEntity <Paciente> read(@PathVariable String dni){
-      return pacienteRepository.findById(dni).map(paciente ->
+    @GetMapping("/medico/pacientes/{dni}")
+    public List<Paciente> readPacientes (@PathVariable String dni){
+      return pacienteRepository.findBydni(dni);
+    }
 
-      ResponseEntity.ok().body(paciente)
-
-      ).orElse(new ResponseEntity<Paciente>(HttpStatus.NOT_FOUND));
+    @GetMapping("/medico/pacientes")
+    public List<Paciente> getPacientes() {
+      return (List<Paciente>) pacienteRepository.findAll();
 
     }
 
-    
- */
+
     // @GetMapping("/kiosko/{cita}")
     // List<Cita> readCitasSala(@PathVariable int sala_espera){
     //   List citas = List<Cita> citaRepository.findBySala(sala_espera);
@@ -168,14 +196,13 @@ public class MedconController {
     } */
 
     /* PACIENTE:
-     1º Pasar todos los DNIs /kiosko --> HECHO
-     2º Para un DNI buscar las citas que tiene /kiosko/{dni} --> HECHO
-     3º Confirmar presencia en la bbdd para una cita y subir el ticket /kiosko/dni/{cita}
-     4º Para la cita seleccionada, introducir el ticket a la bbdd
+     1º Para un DNI buscar las citas que tiene /kiosko/{dni} --> HECHO
+     2º Confirmar presencia en la bbdd para una cita y subir el ticket /kiosko/dni/{cita}
+     3º Para la cita seleccionada, introducir el ticket a la bbdd
     */
 
     /* SALA ESPERA:
-     1º Obtener las citas con varibable atendida=true /espera/{sala} --> MEDIO HECHO
+     1º Obtener las citas con varibable llamado=true /espera/{sala} --> MEDIO HECHO
     */
 
     /* MÉDICO:  ---------------------------------------------------> HACER DESPUÉS
