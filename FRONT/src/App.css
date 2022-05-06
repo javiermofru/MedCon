@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgb(239, 235, 235);
+  background-color: white;
 }
 
 .App-logo {
@@ -44,10 +44,18 @@
 
 #ft {
   background-color: #7EDB98;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   color: black;
-  position: fixed;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  
+}
+
+
+body {
+  margin: 0;
+  margin-bottom: 40px;
+}
+html {
+  min-height: 100%;
+  position: relative;
 }

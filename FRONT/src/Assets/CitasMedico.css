@@ -1,0 +1,55 @@
+#citas {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse:collapse ;
+  width: 100%;
+  background-color: white;
+  border: solid 1px;
+}
+
+#citas td, #citas th {
+  border: 1px, solid black;
+  padding: 8px;
+
+}
+
+#citas tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#citas tr:hover {
+  background-color: #ddd;
+}
+
+#citas th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+  
+}
+
+#contenedor{
+  background-color: white;
+  position: relative;
+
+}
+
+form{
+  margin:0 auto;
+  width:300px;
+  padding: 10px;
+  color:999;
+  border-radius: 5px;
+  font-size: 0.6;
+}
+
+input,textarea{
+  border:0;
+  outline:none;
+}
+
+.field{
+  border:solid 1px #ccc;
+  padding:6px;
+}

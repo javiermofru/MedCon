@@ -19,13 +19,14 @@ public class Cita {
     private int medico;
     private String dni;
     private String ticketTurno;
+     private String razon;
     
 
     public Cita() {
     }
 
 
-    public Cita(String id, String fecha, String hora, Boolean llamado, Boolean registrado, int medico, String dni) {
+    public Cita(String id, String fecha, String hora, Boolean llamado, Boolean registrado, int medico, String dni, String ticketTurno, String razon) {
         this.id = id;
         this.fecha = fecha;
         this.hora = hora;
@@ -33,6 +34,8 @@ public class Cita {
         this.registrado = registrado;
         this.medico = medico;
         this.dni = dni;
+        this.ticketTurno = ticketTurno;
+        this.razon = razon;
     }
 
 
@@ -104,5 +107,13 @@ public class Cita {
         this.ticketTurno = ticketTurno;
     }
    
+      public String getRazon() {
+        return razon;
+    }
+
+    public void setRazon(String razon) {
+        this.razon = razon;
+    }
+    
 
 }

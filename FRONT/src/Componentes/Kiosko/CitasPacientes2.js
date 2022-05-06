@@ -25,13 +25,14 @@ export default function CitasPaciente(){
 
 
     return (
-        <div >
+        <div id='contenedor'>
             <div className='container mt-3 '>
                 <h1>Tabla de citas del paciente</h1>
                 <table id='citas'>
                     <tr>
                         <th>Fecha</th>
                         <th>Hora</th>
+                        <th>Especialidad</th>
                         <th>Registrar presencia</th>
                     </tr>
 
@@ -40,6 +41,7 @@ export default function CitasPaciente(){
                     <tr>
                         <td>{data.fecha}</td>
                         <td>{data.hora}</td>
+                        <td>{data.razon}</td>
                         <td>
                             <button 
                                 className='btn m-2 bg-success'

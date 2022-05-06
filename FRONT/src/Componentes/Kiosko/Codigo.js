@@ -1,30 +1,33 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Assets/codigo.css';
 import { Card, Button } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom"
-import { useState, useParams, useEffect } from 'react';
+import { useNavigate, useParams } from "react-router-dom"
+import { useState, useEffect } from 'react';
 
 export default function Codigo() {
     const navigate = useNavigate();
-/*       const [citas, setCitas] = useState([]);
+    const [citas, setCitas] = useState([]);
+    const [numero, setNumero] = useState("");
+    let {citaId} = useParams();
 
-      let {citaId} = useParams();
-      
+    useEffect(() => {
+        let c = getAleatorio()
+        c.join("")
+        setNumero(c)
+        console.log(c)
+        fetch(`http://localhost:8080/paciente/codigo/${citaId}`, {
+          method:'POST', 
+          mode: 'no-cors',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(c.join(""))
+        })  
+        
+        
+    }, []);
 
-      useEffect(() => {
-         fetch('/api/traza/create', {
-	        	method:'POST', 
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(traza),
-          }).then(setTicketTurno);
-      
-      }, [500]);
-      console.log(`http://localhost:8080/paciente/${dni}`)
-      console.log(citas);
- */
     const getAleatorio = () => {
       //Número de dos cifras
       var aleatorio = Math.floor(88*Math.random()+11);  
@@ -33,14 +36,20 @@ export default function Codigo() {
       let codigo = []
       codigo[0]=characters.charAt(Math.floor(Math.random()*25));        
       codigo.push(aleatorio);
+      return codigo
+    } 
       
-      return( 
-        <Card.Title className='h1 display-2' id='code'>
-        {codigo}
-        </Card.Title>
-    )
+      //console.log(citas);
+      console.log(numero)
+
+      // let aleatorio = Math.floor(88*Math.random()+11);
+      // const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      // let codigo = [];
+      // codigo[0]=characters.charAt(Math.floor(Math.random()*25)); 
+      // codigo.push(aleatorio);
+      // setNumero(codigo.join(""));    
+
     
-}
   return (
     <div className="codigo">
       <div className='codigoInicio'>
@@ -48,18 +57,13 @@ export default function Codigo() {
         <Card className='text-center' >
         
         <Card.Body >
-            <Card.Title className='display-4'>BIENVENIDO, "NOMBRE-PACIENTE"</Card.Title>
+            <Card.Title className='display-4'>BIENVENIDO, </Card.Title>
             <Card.Text >
-            SU CÓDIGO PARA SER ATENDIDO ES:
+            SU CÓDIGO PARA SER ATENDIDO ES: 
             </Card.Text>
-           {getAleatorio()}
-            <Card.Text >
-            ESPERE SU TURNO EN: 
-            </Card.Text>
-            <Card.Title className='display-2' >
-            SALA DE ESPERA 8
+            <Card.Title className='h1 display-2' id='code'>
+              {numero}
             </Card.Title>
-
 
 
             <div className='btn-group-vertical'>

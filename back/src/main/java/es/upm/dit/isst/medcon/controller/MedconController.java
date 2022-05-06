@@ -32,11 +32,11 @@ public class MedconController {
     
     public MedconController(CitaRepository c, PacienteRepository p, MedicoRepository m) {
         this.citaRepository = c;
-        c.save(new Cita("1","30/3/2022", "12:30", false , false , 123456789, "53880976V" ));
-        c.save(new Cita("2","28/3/2022", "12:30", false , false , 123456789, "53880978V" ));
-        c.save(new Cita("3","17/3/2022", "12:30", false , false ,987654321, "53880979V" ));
-        c.save(new Cita("4","30/3/2022", "11:30", false , false ,123412341, "53880975V" ));
-        c.save(new Cita("5","30/3/2022", "12:00", false , false , 432143214, "53880976V" ));
+        c.save(new Cita("1","30/3/2022", "12:30", false , false , 123456789, "53880976V", null, "Traumatología" ));
+        c.save(new Cita("2","28/3/2022", "12:30", false , false , 123456789, "53880978V", null, "Radilogía" ));
+        c.save(new Cita("3","17/3/2022", "12:30", false , false ,987654321, "53880979V", null, "Traumatología" ));
+        c.save(new Cita("4","30/3/2022", "11:30", false , false ,123412341, "53880975V", null, "Ginecología" ));
+        c.save(new Cita("5","30/3/2022", "12:00", false , false , 432143214, "53880976V", null, "Análisis" ));
 
 
         this.pacienteRepository = p;
@@ -82,13 +82,14 @@ public class MedconController {
     List<Cita> findAll_by_salaEspera() {
       return (List<Cita>) citaRepository.findAll();
     }
-    @PostMapping("/cita/codigo/{id}")
 
-    ResponseEntity<Cita> registraTicket(@PathVariable String id) {
+    @PostMapping("/paciente/codigo/{id}")
+    ResponseEntity<Cita> registraTicket(@PathVariable String id, @RequestBody String c) {
 
       return citaRepository.findById(id).map(cita -> {
 
-        cita.setTicketTurno(ticket_turno);
+        cita.setTicketTurno(c);
+        cita.setRegistrado(true);
 
         citaRepository.save(cita);
 

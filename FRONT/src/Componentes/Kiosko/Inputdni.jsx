@@ -37,6 +37,7 @@ export default class Inputdni extends React.Component{
               Introduzca su DNI
             </label>
             <input
+            id='input'
             className="form-control"
             type="text"
             name="DNI"

@@ -18,14 +18,15 @@ export default class SalaEspera extends Component {
               </tr>
               <tr>
                 <td>JA828</td>
-                <td>2</td>
+                <td>3</td>
               </tr>
               <tr>
                 <td>JA828</td>
-                <td>2</td>
+                <td>1</td>
               </tr>
               <tr>
                 <td>JA828</td>
+                <td>1</td>
               </tr>
 
           </tbody>
