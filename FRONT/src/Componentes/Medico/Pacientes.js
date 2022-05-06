@@ -25,9 +25,6 @@ export default function CitasMedico() {
           <Link className="btn btn-success" to="crear" id="añadir">
             Añadir cita
           </Link>
-          <Link className="btn btn-success" to="listapacientes" id="añadir">
-            Lista pacientes
-          </Link>
           <Link className="btn btn-success" to="" id="añadir">
             Lista citas
           </Link>

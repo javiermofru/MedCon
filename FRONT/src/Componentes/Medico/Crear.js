@@ -13,10 +13,7 @@ export default function Crear() {
     <div>
       <div>
         <h1>Tabla de citas del médico</h1>
-        <Link className="btn btn-success" to="crear" id="añadir">
-          Añadir cita
-        </Link>
-        <Link className="btn btn-success" to="listapacientes" id="añadir">
+        <Link className="btn btn-success" to="../medico/pacientes" id="añadir">
           Lista pacientes
         </Link>
         <button 

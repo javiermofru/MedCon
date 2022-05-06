@@ -12,7 +12,18 @@ export default function CitasMedico() {
   let {medico} = useParams();
   console.log(medico)
 
-
+  async function remove(id) {
+    await fetch(`http://localhost:8080/medico/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then(() => {
+        let updatedCitas = [...this.citas].filter(i => i.id !== id);
+        this.setCitas(updatedCitas);
+    });
+  }
   useEffect(() => {
     fetch(`http://localhost:8080/medico/${medico}`)
       .then((response) => response.json())
@@ -26,22 +37,22 @@ export default function CitasMedico() {
       <div>
       <div class="btn-group btn-group-lg" role="group" aria-label="...">
       </div>
-        <h1>BIENVENIDO</h1>
       </div>
       <div className="container mt-3 ">
         <div>
           <h1>Tabla de citas del médico</h1>
-          <Link className="btn btn-success" to="crear" id="añadir">
-            Añadir cita
-          </Link>
-          <Link className="btn btn-success" to="listapacientes" id="añadir">
-            Lista pacientes
-          </Link>
-          <Link className="btn btn-success" to="" id="añadir">
-            Lista citas
-          </Link>
+          <div id="botones" className="btn-group btn-group-lg">
+            <Link className="btn btn-success m-2 rounded-0" to="crear" id="añadir">
+              Añadir cita
+            </Link>
+            
+            <Link className="btn btn-success m-2 rounded-0" to="pacientes" id="añadir">
+              Lista pacientes
+            </Link>
+
+          </div>
         </div>
-        <table id="citas">
+        <table id="citas" className="mt-2">
           <tr>
             <th>Nombre</th>
             <th>Hora</th>
@@ -61,7 +72,7 @@ export default function CitasMedico() {
                 </Link>
               </td>
               <td>
-                <Link className="btn btn-success" to="codigo" id="eliminar">
+                <Link className="btn btn-success" to="codigo" id="eliminar" onClick={() => this.remove(data.id)}>
                   X
                 </Link>
               </td>

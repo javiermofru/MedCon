@@ -10,16 +10,19 @@ public class Paciente {
     private String dni;
     private String nombre;
     private String fechaNacimiento;
+    private String sexo;
 
     
     public Paciente() {
     }
 
-    public Paciente(String dni, String nombre, String fechaNacimiento) {
+    
+
+    public Paciente(String dni, String nombre, String fechaNacimiento, String sexo) {
         this.dni = dni;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
-    
+        this.sexo = sexo;
     }
 
     public String getDni() {
@@ -46,6 +49,12 @@ public class Paciente {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
 
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
     
 }

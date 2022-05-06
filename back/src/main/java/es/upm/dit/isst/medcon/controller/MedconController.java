@@ -42,11 +42,11 @@ public class MedconController {
 
 
         this.pacienteRepository = p;
-        p.save(new Paciente("53880976V","Carlos Chinchilla", "30/3/1985"));
-        p.save(new Paciente("53880978V","Cira Pozo", "12/8/1994"));
-        p.save(new Paciente("53880979V","Javier Moreno", "24/10/2000"));
-        p.save(new Paciente("53880975V","Alejandro Mariscal", "3/2/1965"));
-        p.save(new Paciente("53880974V","Miguel Varas", "19/7/1999"));
+        p.save(new Paciente("53880976V","Carlos Chinchilla", "30/3/1985", "Hombre"));
+        p.save(new Paciente("53880978V","Cira Pozo", "12/8/1994", "Mujer"));
+        p.save(new Paciente("53880979V","Javier Moreno", "26/07/2000", "Hombre"));
+        p.save(new Paciente("53880975V","Alejandro Mariscal", "3/2/1965", "Hombre"));
+        p.save(new Paciente("53880974V","Miguel Varas", "19/7/1999", "Hombre"));
     
 
         this.medicoRepository = m;
@@ -171,7 +171,7 @@ public class MedconController {
       return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/medico/pacientes/{dni}")
+    @GetMapping("/medico/{colegiado}/pacientes/{dni}")
     public List<Paciente> readPacientes (@PathVariable String dni){
       return pacienteRepository.findBydni(dni);
     }
