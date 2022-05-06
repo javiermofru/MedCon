@@ -12,9 +12,15 @@ export default function Codigo() {
       
 
       useEffect(() => {
-      fetch(`http://localhost:8080/paciente/${dni}`)
-          .then(response => response.json())
-          .then(response=> setCitas(response))
+         fetch('/api/traza/create', {
+	        	method:'POST', 
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(traza),
+          }).then(setTicketTurno);
+      
       }, [500]);
       console.log(`http://localhost:8080/paciente/${dni}`)
       console.log(citas);

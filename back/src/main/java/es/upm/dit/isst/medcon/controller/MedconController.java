@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -81,15 +82,57 @@ public class MedconController {
     List<Cita> findAll_by_salaEspera() {
       return (List<Cita>) citaRepository.findAll();
     }
+    @PostMapping("/cita/codigo/{id}")
 
-    
- /*    @PutMapping("/cita/{id}")
+    ResponseEntity<Cita> registraTicket(@PathVariable String id) {
+
+      return citaRepository.findById(id).map(cita -> {
+
+        cita.setTicketTurno(ticket_turno);
+
+        citaRepository.save(cita);
+
+        return ResponseEntity.ok().body(cita);
+
+      }).orElse(new ResponseEntity<Cita>(HttpStatus.NOT_FOUND));  
+
+    }
+
+  /*   
+    @PutMapping("/cita/{id}")
     public ResponseEntity updateClient(@PathVariable Long id, @RequestBody Cita cita) {
         Cita currentCita = citaRepository.findById(id).orElseThrow(RuntimeException::new);
         currentCita.setTicket(cita.getTicket());
         currentCita = citaRepository.save(cita);
 
         return ResponseEntity.ok(currentCita);
+    } */
+ /*    @PutMapping("/medico/{id}")
+
+    public ResponseEntity<Cita> update(@RequestBody Cita newCita, @PathVariable String id) {
+
+      return citaRepository.findById(id).map(cita -> {
+
+        cita.setId(newCita.getId());
+
+        cita.setFecha(newCita.getFecha());
+
+        cita.setHora(newCita.getHora());
+
+        cita.setLlamado(newCita.getLlamado());
+
+        cita.setRegistrado(newCita.getRegistrado());
+
+        cita.setMedico(newCita.getMedico());
+        cita.setDni(newCita.getDni());
+        cita.setTicketTurno(newCita.getTicketTurno());
+
+        citaRepository.save(cita);
+
+        return ResponseEntity.ok().body(tfg);
+
+      }).orElse(new ResponseEntity<Cita>(HttpStatus.NOT_FOUND));
+
     } */
     
 

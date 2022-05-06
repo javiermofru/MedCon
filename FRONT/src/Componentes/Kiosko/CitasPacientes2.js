@@ -32,7 +32,6 @@ export default function CitasPaciente(){
                     <tr>
                         <th>Fecha</th>
                         <th>Hora</th>
-                        <th>Llamado</th>
                         <th>Registrar presencia</th>
                     </tr>
 
@@ -41,7 +40,6 @@ export default function CitasPaciente(){
                     <tr>
                         <td>{data.fecha}</td>
                         <td>{data.hora}</td>
-                        <td>{data.llamado ? 'SI' : 'NO'}</td>
                         <td>
                             <button 
                                 className='btn m-2 bg-success'
