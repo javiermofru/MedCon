@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function Crear() {
+
+  const [buttonText, setButtonText] = useState("Llamar Paciente");
   
   let {colegiado} = useParams();
   let navigate = useNavigate();
@@ -44,13 +46,18 @@ export default function Crear() {
     }
     return i;
   }
+
+  useEffect (() => {
+    startTime();
+  })
+
   
   //startTime()
   return (
     
     <div>
     
-      <div>
+      <div >
       
         <h1>Añadir nueva cita</h1>
           
@@ -87,7 +94,7 @@ export default function Crear() {
           <input type="date" name="fecha" class="field" />
 
           <p>
-            <input className="btn btn-success" type="submit" id="hora1" value="Añadir Cita" class="field" />
+            <input className="btn btn-success" type="submit" id="hora1" value="Añadir cita" class="field" />
           </p>
         </form>
       </div>

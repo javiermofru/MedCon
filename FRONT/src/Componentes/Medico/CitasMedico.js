@@ -35,6 +35,8 @@ export default function CitasMedico() {
   }, [500]);
   console.log(`http://localhost:8080/medico/${medico}`)
   console.log(citas);
+  
+
   return (
     <div id="contenedor">
       <div>
@@ -75,9 +77,12 @@ export default function CitasMedico() {
               <td>{data.hora}</td>
               <td>{data.fecha}</td>
               <td>
-                <Link className="btn btn-success" to="codigo">
-                  Llamar
-                </Link>
+                <input
+                id = {(`llamar-${index}`)}
+                value="Llamar paciente"
+                type="submit"
+                className="btn btn-success"/>
+              
               </td>
               <td>
                 <Link className="btn btn-success" to="codigo" id="eliminar" onClick={() => this.remove(data.id)}>

@@ -24,7 +24,7 @@ export default function CitasMedico() {
   console.log(paciente);
   return (
     <div>
-     {paciente.map((data,index) => (
+     {paciente.map((data) => (
       <div class="container mt-5">
     
       <div class="row d-flex justify-content-center">
