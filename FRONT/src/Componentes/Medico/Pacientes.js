@@ -2,12 +2,14 @@ import React, { Component, useState, useEffect } from "react";
 import { Container, Table } from "react-bootstrap";
 import "../../Assets/CitasMedico.css";
 import { data } from "../../data/dataCitasMedico";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 //let datos = JSON.parse(JSON.stringify(data));
 
 export default function CitasMedico() {
   const [paciente, setPaciente] = useState([]);
+  let {colegiado} = useParams();
+  let navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:8080/medico/pacientes`)
@@ -22,13 +24,14 @@ export default function CitasMedico() {
       <div className="container mt-3 ">
         <div>
           <h1>Lista de Pacientes</h1>
-          <Link className="btn btn-success" to="crear" id="añadir">
-            Añadir cita
-          </Link>
-          <Link className="btn btn-success" to="" id="añadir">
-            Lista citas
-          </Link>
+          
         </div>
+        <button 
+        className='btn btn-lg bg-success rounded-0 text-white mt-3 mb-2 '
+        onClick={() => navigate(`/medico/${colegiado}`)}>
+          Volver
+        </button>
+  
         <table id="citas">
           <tr>
             <th>Nombre</th>

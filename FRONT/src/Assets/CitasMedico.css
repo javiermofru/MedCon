@@ -40,14 +40,22 @@
 }
 
 form{
-  margin:0 auto;
-  width:300px;
+  margin-left:10%;
+  margin-right: 10%;
+  
   padding: 10px;
   color:999;
   border-radius: 5px;
   font-size: 0.6;
   margin-bottom: 5%;
-  border-width:thick;
+  border: solid black 1px;
+  
+}
+
+form p {
+  text-align: left;
+  margin-bottom: 0.5%;
+  font-weight: bold;
 }
 
 input,textarea{
@@ -58,14 +66,19 @@ input,textarea{
 .field{
   border:solid 1px #ccc;
   padding:6px;
-  width:200px;
+  width:100%;
 }
 .field:focus{
   border-color: #04AA6D;
 }
 
 #hora1{
-  margin-top: 10%;
+  text-align: center;
+  margin-top: 2%;
+  margin-right: 20%;
+  margin-right: 20%;
+  background-color: #04AA6D;
+  color: white;
 }
 
 #formulario{
@@ -110,5 +123,12 @@ input,textarea{
   background-color: #04AA6D;
   color: white;
   
+}
+
+#salir {
+  float:none;
+  background-color: #dc345d ;
+  width: 30%;
+  margin: 10%;
 }
 

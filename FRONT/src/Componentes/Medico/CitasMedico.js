@@ -3,6 +3,9 @@ import { Container, Table } from "react-bootstrap";
 import "../../Assets/CitasMedico.css";
 import { data } from "../../data/dataCitasMedico";
 import { Link, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOut, faCirclePlus, faBedPulse, faClockFour } from "@fortawesome/free-solid-svg-icons";
+
 
 //let datos = JSON.parse(JSON.stringify(data));
 
@@ -43,11 +46,14 @@ export default function CitasMedico() {
           <h1>Tabla de citas del médico</h1>
           <div id="botones" className="btn-group btn-group-lg">
             <Link className="btn btn-success m-2 rounded-0" to="crear" id="añadir">
-              Añadir cita
+              Nueva cita &nbsp;
+              <FontAwesomeIcon icon={faCirclePlus}/>
+
             </Link>
             
             <Link className="btn btn-success m-2 rounded-0" to="pacientes" id="añadir">
-              Lista pacientes
+              Lista pacientes &nbsp;
+              <FontAwesomeIcon icon={faBedPulse} />
             </Link>
 
           </div>
@@ -55,7 +61,9 @@ export default function CitasMedico() {
         <table id="citas" className="mt-2">
           <tr>
             <th>Nombre</th>
-            <th>Hora</th>
+            <th>
+            <FontAwesomeIcon icon={faClockFour} />
+            </th>
             <th>Fecha</th>
             <th></th>
             <th></th>
@@ -79,6 +87,16 @@ export default function CitasMedico() {
             </tr>
           ))}
         </table>
+
+        <Link className="btn btn-success m-2 rounded-0" to="../medico" id="salir">
+          Cerrar sesión &nbsp; 
+
+          <FontAwesomeIcon icon={faSignOut}/>
+        </Link>
+
+
+
+
       </div>
     </div>
   );

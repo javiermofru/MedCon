@@ -3,7 +3,7 @@ import "./App.css";
 import Codigo from "./Componentes/Kiosko/Codigo";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Home from "./Componentes/Home";
 import Footer from "./Componentes/Footer";
 import PacienteLogin from "./Componentes/Kiosko/LoginPaciente";
@@ -31,11 +31,6 @@ function App() {
 
             <span className="text-white">MedCon</span>
           </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="paciente" className="text-white">Kiosko</Nav.Link>
-            <Nav.Link href="medico" className="text-white">Médico</Nav.Link>
-            <Nav.Link href="salaespera" className="text-white">Sala de espera</Nav.Link>
-          </Nav>
 
         </Container>
       </Navbar>
