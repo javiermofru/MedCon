@@ -50,10 +50,10 @@ public class MedconController {
     
 
         this.medicoRepository = m;
-        m.save(new Medico( "123456789" ,"Carlos Chinchilla"));
-        m.save(new Medico( "987654321" ,"Cira Pozo"));
-        m.save(new Medico( "123412341" ,"Javier Moreno"));
-        m.save(new Medico( "432143214" ,"Alejandro Mariscal"));
+        m.save(new Medico( "123456789" ,"Carlos Chinchilla", "medico1"));
+        m.save(new Medico( "987654321" ,"Cira Pozo", "medico2"));
+        m.save(new Medico( "123412341" ,"Javier Moreno", "medico3"));
+        m.save(new Medico( "432143214" ,"Alejandro Mariscal", "medico4"));
 
     }
 
@@ -180,11 +180,6 @@ public class MedconController {
     }
 
 
-    // @GetMapping("/kiosko/{cita}")
-    // List<Cita> readCitasSala(@PathVariable int sala_espera){
-    //   List citas = List<Cita> citaRepository.findBySala(sala_espera);
-    //   return (List<Cita>) citaRepository.findBySala(sala_espera);
-    // }
 
     /* @PostMapping("/Medcon")
     ResponseEntity<Medcon> create(@RequestBody Medcon newMedcon) throws URISyntaxException {
@@ -194,19 +189,20 @@ public class MedconController {
 
     /* PACIENTE:
      1º Para un DNI buscar las citas que tiene /kiosko/{dni} --> HECHO
-     2º Confirmar presencia en la bbdd para una cita y subir el ticket /kiosko/dni/{cita}
-     3º Para la cita seleccionada, introducir el ticket a la bbdd
+     2º Confirmar presencia en la bbdd para una cita y subir el ticket /kiosko/dni/{cita} --> HECHO
+     3º Para la cita seleccionada, introducir el ticket a la bbdd --> HECHO
     */
 
     /* SALA ESPERA:
-     1º Obtener las citas con varibable llamado=true /espera/{sala} --> MEDIO HECHO
+     1º Obtener las citas con varibable llamado=true /espera/{sala} --> HECHO
     */
 
-    /* MÉDICO:  ---------------------------------------------------> HACER DESPUÉS
-     1º Pasar todos los médico registrados /medico
-     2º Para un médico, pasar todas sus citas /medico/citas
-     3º Para un médico, pasar todos sus pacientes /medico/pacientes
+    /* MÉDICO: 
+     1º Pasar todos los médico registrados /medico --> HECHO
+     2º Para un médico, pasar todas sus citas /medico/citas --> HECHO
+     3º Pasar todos los pacientes /medico/pacientes --> HECHO
      4º Para un médico, crear una nueva cita /medico/agenda
+     5º Para un médico, borrar una cita --> MEDIO HECHO
 
     */
  

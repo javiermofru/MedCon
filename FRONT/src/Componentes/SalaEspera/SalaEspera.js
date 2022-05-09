@@ -53,8 +53,8 @@ export default function SalaEspera() {
         <div>
           <h1>SALA DE ESPERA</h1>
         </div>
-        <div id="clockdate">
-            <div class="clockdate-wrapper">
+        <div id="relojSalaEspera">
+            <div class="clockdate-wrapper mb-2">
               <div id="clock"></div>
               <div id="date"></div>
             </div>

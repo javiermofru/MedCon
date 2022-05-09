@@ -1,10 +1,12 @@
 #citas {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse:collapse ;
-    width: 100%;
+    width: 80%;
     background-color: white;
     border: solid 1px;
     align-items: center;
+    margin-left: 10%;
+
   }
   
   #citas td, #citas th {

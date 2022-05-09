@@ -22,7 +22,7 @@ export default class LoginMedico extends React.Component {
                             Para iniciar sesión, introduzca su nº de colegiado y su contraseña
                             </Card.Text>
                             <InputColegiado/>    
-                                                            
+                            <a href="/medico">Logout</a>             
                         </Card.Body>
                     </Card> 
     

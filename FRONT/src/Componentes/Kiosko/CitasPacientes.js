@@ -19,14 +19,19 @@ export default function CitasPaciente(){
     fetch(`http://localhost:8080/paciente/${dni}`)
         .then(response => response.json())
         .then(response=> setCitas(response))
+        if (citas.length > 0) {
+            setHayCitas("true")
+        }
+        else {setHayCitas("false")}
     }, [500]);
     console.log(`http://localhost:8080/paciente/${dni}`)
     console.log(citas);
 
+    const [hayCitas, setHayCitas] = useState("false");
 
     return (
         <div id='contenedor'>
-            <div className='container mt-3 '>
+            <div className='container mt-3 ' aria-disabled={hayCitas ? "false" : "true"}>
                 <h1>Tabla de citas del paciente</h1>
                 <table id='citas'>
                     <tr>
@@ -57,6 +62,12 @@ export default function CitasPaciente(){
                     ))}
 
                 </table>
+            </div>
+
+            <div className='container mt-3 ' id="ErrorPage"  aria-disabled={hayCitas ? "true" : "false"}>
+                        
+
+
             </div>
         </div>
     )

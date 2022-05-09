@@ -18,7 +18,7 @@ import Info from "./Componentes/Medico/Info";
 function App() {
   return (
     <div className="App" id="main">
-      <Navbar className="bg-secondary opacity-100">
+      <Navbar className="bg-secondary  border-bottom-3 border border-success    opacity-100">
         <Container>
           <Navbar.Brand href="/">
             <img

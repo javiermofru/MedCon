@@ -9,17 +9,18 @@ public class Medico {
     
     @Id
     private String colegiado;
-
     private String nombre;
-    
+    private String contraseña;
 
     
     public Medico() {
     }
 
-    public Medico(String colegiado, String nombre) {
+
+    public Medico(String colegiado, String nombre, String contraseña) {
         this.colegiado = colegiado;
         this.nombre = nombre;
+        this.contraseña = contraseña;
     }
 
     public String getColegiado() {
@@ -38,7 +39,13 @@ public class Medico {
         this.nombre = nombre;
     }
   
-    
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
     
     
 }
