@@ -143,8 +143,6 @@ public class MedconController {
       
       Cita cita = new Cita();
 
-      cita.setId(newCita.getId());
-
       cita.setFecha(newCita.getFecha());
 
       cita.setHora(newCita.getHora());
@@ -164,11 +162,10 @@ public class MedconController {
 
     }
     
-
     @DeleteMapping("/medico/{colegiado}/{id}")
-    public ResponseEntity<Cita> deleteClient(@PathVariable int id) {
+    public String deleteClient(@PathVariable int id) {
       citaRepository.deleteById(Integer.toString(id));
-      return ResponseEntity.ok().build();
+      return "redirect:/medico/";
     }
 
     @GetMapping("/medico/{colegiado}/pacientes/{dni}")

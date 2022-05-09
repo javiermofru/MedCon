@@ -9,8 +9,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function Crear() {
-
+  
   const [buttonText, setButtonText] = useState("Llamar Paciente");
+
   
   let {colegiado} = useParams();
   let navigate = useNavigate();
@@ -29,8 +30,8 @@ export default function Crear() {
     sec = checkTime(sec);
     document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec + " " + ap;
     
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    var days = ['Dom', 'Lun', 'Mar', 'Miér', 'Jue', 'Vie', 'Sab'];
     var curWeekDay = days[today.getDay()];
     var curDay = today.getDate();
     var curMonth = months[today.getMonth()];
@@ -48,6 +49,15 @@ export default function Crear() {
   }
 
   useEffect (() => {
+    fetch(`http://localhost:8080/paciente/codigo/`, {
+          method:'POST', 
+          mode: 'no-cors',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify()
+        })  
     startTime();
   })
 

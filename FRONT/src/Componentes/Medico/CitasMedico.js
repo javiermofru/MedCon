@@ -13,28 +13,41 @@ export default function CitasMedico() {
   const [citas, setCitas] = useState([]);
   const [paciente, setPaciente] = useState([]);
   let {medico} = useParams();
+  let {id} = useParams();
   console.log(medico)
+  
 
   async function remove(id) {
-    await fetch(`http://localhost:8080/medico/${id}`, {
+    await fetch(`http://localhost:8080/medico/${medico}/${id}`, {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
-    }).then(() => {
-        let updatedCitas = [...this.citas].filter(i => i.id !== id);
-        this.setCitas(updatedCitas);
-    });
+      });
+    // }).then(() => {
+    //     let updatedCitas = [...this.citas].filter(i => i.id !== id);
+    //     this.setCitas(updatedCitas);
+    // });
+
   }
+
+  
+
+
+
   useEffect(() => {
     fetch(`http://localhost:8080/medico/${medico}`)
       .then((response) => response.json())
       .then((response) => setCitas(response));
     console.log(citas);
+
+    
   }, [500]);
   console.log(`http://localhost:8080/medico/${medico}`)
   console.log(citas);
+
+ 
   
 
   return (
@@ -77,15 +90,15 @@ export default function CitasMedico() {
               <td>{data.hora}</td>
               <td>{data.fecha}</td>
               <td>
-                <input
-                id = {(`llamar-${index}`)}
-                value="Llamar paciente"
-                type="submit"
-                className="btn btn-success"/>
+               <button className="bnt btn-success" onClick={()=> data.llamado}>
+               
+               {!data.llamado ? "Llamar paciente" : "Llamado"}
+
+               </button>
               
               </td>
               <td>
-                <Link className="btn btn-success" to="codigo" id="eliminar" onClick={() => this.remove(data.id)}>
+                <Link className="btn btn-success" to={data.id} id="eliminar" onClick={() => remove(`${data.id}`)}>
                   X
                 </Link>
               </td>

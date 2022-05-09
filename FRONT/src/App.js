@@ -42,6 +42,7 @@ function App() {
           <Route path="paciente/codigo/:citaId" element={<Codigo />} />
           <Route path="medico" element={<LoginMedico />} />
           <Route path="medico/:medico" element={<CitasMedico />} />
+          <Route path="medico/:medico/:id" element={<CitasMedico />} />
           <Route path="medico/:colegiado/crear" element={<Crear />} />
           <Route path="medico/:colegiado/pacientes" element={<Pacientes />}/>
           <Route path="medico/:colegiado/pacientes/:dni" element={<Info />}/>
