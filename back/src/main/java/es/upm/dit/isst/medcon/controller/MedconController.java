@@ -56,11 +56,6 @@ public class MedconController {
 
     }
 
-    @GetMapping("/citas")
-    public List<Cita> getAllCitas() {
-      return (List<Cita>)citaRepository.findAll();
-
-    }
 
     @GetMapping("/paciente")
     public List<Paciente> getCitas() {
@@ -137,6 +132,8 @@ public class MedconController {
     public ResponseEntity<Cita> newCita(@RequestBody Cita newCita) {
       
       Cita cita = new Cita();
+
+      cita.setId(newCita.getId());
 
       cita.setFecha(newCita.getFecha());
 

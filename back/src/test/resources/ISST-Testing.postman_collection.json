@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "0682f227-6d0b-46eb-ab43-1ef1919a0019",
+		"name": "ISST-Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sala de Espera",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/salaespera",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"salaespera"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/medico",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/medico",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"medico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/medico/pacientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/medico/pacientes",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"medico",
+						"pacientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/medico/colegiado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/medico/123456789",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"medico",
+						"123456789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/medico/colegiado/pacientes/dni",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/medico/123456789/pacientes/53880976V",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"medico",
+						"123456789",
+						"pacientes",
+						"53880976V"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/medico/cita/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/medico/cita/3",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"medico",
+						"cita",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/paciente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/paciente",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"paciente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/paciente/dni",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/paciente/53880976V",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"paciente",
+						"53880976V"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/paciente/codigo/id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "W67",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_back}}/paciente/codigo/2",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"paciente",
+						"codigo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/medico/colegiado/llamar/id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/medico/123456789/llamar/2",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"medico",
+						"123456789",
+						"llamar",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete /medico/colegiado/id cita",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url_back}}/medico/123456789/1",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"medico",
+						"123456789",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/medico/colegiado/crear",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"fecha\":\"12/05/2022\",\r\n    \"hora\":\"14:30\",\r\n    \"llamado\":\"false\",\r\n    \"registrado\": \"false\",\r\n    \"medico\":\"123456789\",\r\n    \"dni\": \"12345678Q\",\r\n    \"ticketTurno\": \"J89\",\r\n    \"razon\": \"Traumatología\",\r\n    \"sala_consulta\": \"2\",\r\n    \"nombrePaciente\": \"Miguel Varas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_back}}/medico/123456789/crear",
+					"host": [
+						"{{url_back}}"
+					],
+					"path": [
+						"medico",
+						"123456789",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url_back",
+			"value": "http://localhost:8080"
+		}
+	]
+}
