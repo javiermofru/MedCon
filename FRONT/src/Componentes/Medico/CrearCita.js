@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label } from 'react-bootstrap';
+import React, { Component,  Input, Label , withRouter } from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Container, Form, FormGroup } from 'react-bootstrap';
 
 
 class Crear extends Component {
@@ -42,7 +42,7 @@ async handleSubmit(event) {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch(`http://localhost:8080/${colegiado}/crear/`, {
+    await fetch(`http://localhost:8080/${this.props.match.params.colegiado}/crear/`, {
         method:'POST', 
         //mode: 'no-cors',
         headers: {
@@ -58,7 +58,6 @@ async handleSubmit(event) {
         const title = "Añadir nueva cita";
 
         return <div>
-            <AppNavbar/>
             <Container>
                 {title}
                 <Form onSubmit={this.handleSubmit}>
@@ -98,4 +97,4 @@ async handleSubmit(event) {
     }
 }
 
-export default withRouter(Crear);
+export default Crear;

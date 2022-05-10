@@ -1,13 +1,10 @@
 import React from "react";
 import { Card} from "react-bootstrap";
-import InputColegiado from "./InputColegiado";
+import InputColegiado from "./InputMedico2";
+import "../../Assets/Paciente/Login.css";
 
-
-import "../../Assets/Paciente/Login.css";;
-
-export default class LoginMedico extends React.Component {    
-    render() {
-        
+export default function LoginMedico() {    
+           
         return (
             
             <div className="pacienteLogin">
@@ -22,13 +19,11 @@ export default class LoginMedico extends React.Component {
                             Para iniciar sesión, introduzca su nº de colegiado y su contraseña
                             </Card.Text>
                             <InputColegiado/>    
-                            <a href="/medico">Logout</a>             
                         </Card.Body>
                     </Card> 
     
                 </div>
             </div>
         );
-    }
     
 }

@@ -13,6 +13,8 @@ import { faSignOut, faCirclePlus, faBedPulse, faClockFour } from "@fortawesome/f
 export default function CitasMedico() {
   const [citas, setCitas] = useState([]);
   const [paciente, setPaciente] = useState([]);
+  
+  
   let {medico} = useParams();
   let {id} = useParams();
   console.log(medico)
@@ -43,10 +45,12 @@ export default function CitasMedico() {
             'Content-Type': 'application/json'
         },
         body: "Hola",
-    });
+    }).then(function (status) {
+      fetch(`http://localhost:8080/medico/${medico}`)
+      .then((response) => response.json())
+      .then((response) => setCitas(response));
+    })
   }
-
-
 
   useEffect(() => {
     fetch(`http://localhost:8080/medico/${medico}`)
