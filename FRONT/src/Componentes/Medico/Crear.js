@@ -1,55 +1,39 @@
 import React, { Component, useState, useEffect } from "react";
 import { Container, Table } from "react-bootstrap";
 import "../../Assets/CitasMedico.css";
-import { data } from "../../data/dataCitasMedico";
+/* import { data } from "../../data/dataCitasMedico";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { ReactDOM } from "react";
 import "./../../Assets/hora.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-export default function Crear() {
+class Crear extends Componet {
   
   const [buttonText, setButtonText] = useState("Llamar Paciente");
-
+  const [newCita, setNewCita] = useState("");
+  let emptyCita = {
+    id: '',
+    fecha:'',
+    hora:'',
+    llamado:'false',
+    registrado: 'false',
+    medico:'',
+    dni: '',
+    ticketTurno: 'null',
+    razon: '',
+    sala_consulta: '',
+    nombrePaciente: ''
+  }
+  const {item} = newCita;
   
   let {colegiado} = useParams();
   let navigate = useNavigate();
 
-  function startTime() {
-    var today = new Date();
-    var hr = today.getHours();
-    var min = today.getMinutes();
-    var sec = today.getSeconds();
-    var ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
-    hr = (hr == 0) ? 12 : hr;
-    hr = (hr > 12) ? hr - 12 : hr;
-    //Add a zero in front of numbers<10
-    hr = checkTime(hr);
-    min = checkTime(min);
-    sec = checkTime(sec);
-    document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec + " " + ap;
-    
-    var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    var days = ['Dom', 'Lun', 'Mar', 'Miér', 'Jue', 'Vie', 'Sab'];
-    var curWeekDay = days[today.getDay()];
-    var curDay = today.getDate();
-    var curMonth = months[today.getMonth()];
-    var curYear = today.getFullYear();
-    var date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear;
-    document.getElementById("date").innerHTML = date;
-    
-    var time = setTimeout(function(){ startTime() }, 500);
-  }
-  function checkTime(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
-  }
-
-  useEffect (() => {
-    fetch(`http://localhost:8080/paciente/codigo/`, {
+  
+  async function handleSubmit(event) {
+    //event.preventDefault();
+    await fetch(`http://localhost:8080/${colegiado}/crear/`, {
           method:'POST', 
           mode: 'no-cors',
           headers: {
@@ -57,12 +41,18 @@ export default function Crear() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify()
-        })  
-    startTime();
-  })
+    });  
+        
+  }
+  function handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    let item = {...this.state.item};
+    item[name] = value;
+    setNewCita({item});
+}
 
-  
-  //startTime()
   return (
     
     <div>
@@ -70,15 +60,6 @@ export default function Crear() {
       <div >
       
         <h1>Añadir nueva cita</h1>
-          
-          <div id="clockdate">
-            <div class="clockdate-wrapper">
-              <div id="clock"></div>
-              <div id="date"></div>
-            </div>
-          </div>
-
-
       </div>
       <button 
       className='btn btn-lg bg-success rounded-0 text-white mt-3 mb-2 '
@@ -87,21 +68,21 @@ export default function Crear() {
       </button>
 
       <div id="formulario" className="form-group">
-        <form className=" mt-2 " action="../form-result.php" target="_blank">
+        <form className=" mt-2 " target="_blank" onSubmit={handleSubmit()}>
           <p>Nombre paciente</p>
-          <input type="text" name="nombre" class="field" />
+          <input type="text" name="nombrePaciente" class="field"  value={item.nombrePaciente || ''} onChange={handleChange()} />
 
           <p>DNI</p>
-          <input type="text" name="dni" class="form-control" />
+          <input type="text" name="dni" class="form-control" value={item.dni || ''} onChange={handleChange()}/>
 
           <p>Especialidad</p>
-          <input type="text" name="dni" class="field" />
+          <input type="text" name="razon" class="field" value={item.razon || ''} onChange={handleChange()}/>
 
           <p>Hora</p>
-          <input type="time" name="hora" class="field" />
+          <input type="time" name="hora" class="field" value={item.hora || ''} onChange={handleChange()}/>
 
           <p>Fecha </p>
-          <input type="date" name="fecha" class="field" />
+          <input type="date" name="fecha" class="field" value={item.fecha || ''} onChange={handleChange()}/>
 
           <p>
             <input className="btn btn-success" type="submit" id="hora1" value="Añadir cita" class="field" />
@@ -111,3 +92,4 @@ export default function Crear() {
     </div>
   );
 }
+ */

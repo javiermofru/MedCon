@@ -41,6 +41,7 @@ export default function Codigo() {
       
       //console.log(citas);
       console.log(numero)
+      console.log(`http://localhost:8080/paciente/codigo/${citaId}`)
 
       // let aleatorio = Math.floor(88*Math.random()+11);
       // const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';

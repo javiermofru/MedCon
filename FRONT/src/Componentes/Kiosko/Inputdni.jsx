@@ -10,7 +10,6 @@ export default class Inputdni extends React.Component{
     }
   }
 
-
   handleChange = e => {
     this.setState({
       values: {

@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
-import { Container, Table } from "react-bootstrap";
+import { Button , Container, Table } from "react-bootstrap";
+
 import "../../Assets/CitasMedico.css";
 import { data } from "../../data/dataCitasMedico";
 import { Link, useParams } from "react-router-dom";
@@ -19,20 +20,31 @@ export default function CitasMedico() {
 
   async function remove(id) {
     await fetch(`http://localhost:8080/medico/${medico}/${id}`, {
-        method: 'DELETE',
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': "*",
+            'Access-Control-Allow-Methods': 'DELETE',
+            'Content-Type': 'application/json'
+        }
+    }).then(() => {
+        let updatedCitas = [...citas].filter(i => i.id !== id);
+        setCitas(updatedCitas);
+    });
+  }
+
+  async function llamar(id) {
+    await fetch(`http://localhost:8080/medico/${medico}/llamar/${id}`, {
+        method: 'POST',
+        mode: 'no-cors',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-        }
-      });
-    // }).then(() => {
-    //     let updatedCitas = [...this.citas].filter(i => i.id !== id);
-    //     this.setCitas(updatedCitas);
-    // });
-
+        },
+        body: "Hola",
+    });
   }
-
-  
 
 
 
@@ -41,10 +53,20 @@ export default function CitasMedico() {
       .then((response) => response.json())
       .then((response) => setCitas(response));
     console.log(citas);
-
     
-  }, [500]);
+    fetch(`http://localhost:8080/medico/${medico}/llamar/${id}`, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+  
+    
+  }, []);
   console.log(`http://localhost:8080/medico/${medico}`)
+  console.log(`http://localhost:8080/medico/${medico}/llamar/${id}`)
   console.log(citas);
 
  
@@ -90,17 +112,18 @@ export default function CitasMedico() {
               <td>{data.hora}</td>
               <td>{data.fecha}</td>
               <td>
-               <button className="bnt btn-success" onClick={()=> data.llamado}>
+               <Button className="bnt btn-success" onClick={() => llamar(data.id)}>
                
                {!data.llamado ? "Llamar paciente" : "Llamado"}
 
-               </button>
+               </Button>
               
               </td>
               <td>
-                <Link className="btn btn-success" to={data.id} id="eliminar" onClick={() => remove(`${data.id}`)}>
+              <Button size="sm" color="danger" onClick={() => remove(data.id)}>X</Button>
+                {/* <Link className="btn btn-success" to={data.id} id="eliminar" /*onClick={/*() => remove(`${data.id}`)} >
                   X
-                </Link>
+                </Link> */}
               </td>
             </tr>
           ))}

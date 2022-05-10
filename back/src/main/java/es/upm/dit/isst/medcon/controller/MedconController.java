@@ -1,7 +1,6 @@
 package es.upm.dit.isst.medcon.controller;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -59,12 +58,6 @@ public class MedconController {
 
     @GetMapping("/citas")
     public List<Cita> getAllCitas() {
-      return (List<Cita>)citaRepository.findAll();
-
-    }
-
-    @GetMapping("/medico")
-    public List<Cita> getAllCitasMedico() {
       return (List<Cita>)citaRepository.findAll();
 
     }
@@ -135,10 +128,12 @@ public class MedconController {
         currentCita.setTicket(cita.getTicket());
         currentCita = citaRepository.save(cita);
 
+
         return ResponseEntity.ok(currentCita);
     } */
 
-   @PutMapping("/medico/{colegiado}/crear")
+    @CrossOrigin(origins = "*")
+    @PutMapping("/medico/{colegiado}/crear")
     public ResponseEntity<Cita> newCita(@RequestBody Cita newCita) {
       
       Cita cita = new Cita();
@@ -155,18 +150,28 @@ public class MedconController {
       cita.setDni(newCita.getDni());
       cita.setTicketTurno(newCita.getTicketTurno());
       cita.setRazon(newCita.getRazon());
-
+      cita.setSala_consulta(newCita.getSala_consulta());
+      cita.setnombrePaciente(newCita.getnombrePaciente());
       citaRepository.save(cita);
 
       return ResponseEntity.ok().body(cita);
 
     }
     
-    @DeleteMapping("/medico/{colegiado}/{id}")
-    public String deleteClient(@PathVariable int id) {
-      citaRepository.deleteById(Integer.toString(id));
-      return "redirect:/medico/";
+    @PostMapping("/medico/{colegiado}/{id}")
+    public ResponseEntity<Cita> deleteClient(@PathVariable String id) {
+      citaRepository.deleteById(id);
+      return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/medico/{colegiado}/llamar/{id}")
+    ResponseEntity<Cita> registraTicket(@PathVariable String id) {
+      return citaRepository.findById(id).map(cita -> {
+        cita.setLlamado(true);
+        citaRepository.save(cita);
+        return ResponseEntity.ok().body(cita);
+      }).orElse(new ResponseEntity<Cita>(HttpStatus.NOT_FOUND));  
+    } 
 
     @GetMapping("/medico/{colegiado}/pacientes/{dni}")
     public List<Paciente> readPacientes (@PathVariable String dni){
@@ -177,6 +182,11 @@ public class MedconController {
     public List<Paciente> getPacientes() {
       return (List<Paciente>) pacienteRepository.findAll();
 
+    }
+
+    @GetMapping("/medico")
+    public List<Medico> getMedicos(){
+      return (List<Medico>) medicoRepository.findAll();
     }
 
 

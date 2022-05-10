@@ -11,9 +11,14 @@ import CitasPaciente from './Componentes/Kiosko/CitasPacientes';
 import LoginMedico from "./Componentes/Medico/LoginMedico";
 import CitasMedico from "./Componentes/Medico/CitasMedico";
 import SalaEspera from "./Componentes/SalaEspera/SalaEspera";
-import Crear from "./Componentes/Medico/Crear";
+import Crear from "./Componentes/Medico/CrearCita";
 import Pacientes from "./Componentes/Medico/Pacientes";
 import Info from "./Componentes/Medico/Info";
+//
+
+
+
+//import Login from "./Components/Medico/Login";
 
 function App() {
   return (
@@ -43,10 +48,12 @@ function App() {
           <Route path="medico" element={<LoginMedico />} />
           <Route path="medico/:medico" element={<CitasMedico />} />
           <Route path="medico/:medico/:id" element={<CitasMedico />} />
+          <Route path="medico/:medico/llamar/:id" element={<CitasMedico />} />
           <Route path="medico/:colegiado/crear" element={<Crear />} />
           <Route path="medico/:colegiado/pacientes" element={<Pacientes />}/>
           <Route path="medico/:colegiado/pacientes/:dni" element={<Info />}/>
           <Route path="salaespera" element={<SalaEspera />}/>
+          {/* <Route path="/login" element={<Login />}/> */}
         </Routes>
       </BrowserRouter>
         <Footer />

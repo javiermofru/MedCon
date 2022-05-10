@@ -119,12 +119,15 @@ public class Cita {
     public void setRazon(String razon) {
         this.razon = razon;
     }
-        public int getSala_consulta() {
+        public int c() {
         return sala_consulta;
     }
 
     public void setSala_consulta(int sala_consulta) {
         this.sala_consulta = sala_consulta;
+    }
+     public int getSala_consulta() {
+        return sala_consulta;
     }
      public void setnombrePaciente(String nombrePaciente) {
         this.nombrePaciente = nombrePaciente;
