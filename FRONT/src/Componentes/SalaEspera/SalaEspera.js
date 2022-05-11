@@ -49,7 +49,7 @@ export default function SalaEspera() {
   
 
   return (
-    <div>
+    <div className="contenedor">
         <div>
           <h1>SALA DE ESPERA</h1>
         </div>

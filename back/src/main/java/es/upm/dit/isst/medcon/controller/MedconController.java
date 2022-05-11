@@ -35,26 +35,26 @@ public class MedconController {
     
     public MedconController(CitaRepository c, PacienteRepository p, MedicoRepository m) {
         this.citaRepository = c;
-        c.save(new Cita("1","12/5/2022", "9:30", false , false , "123456789", "53880976V", null, "Traumatología" , 1,"Carlos Chinchilla"));
-        c.save(new Cita("2","28/3/2022", "10:00", false , false , "123456789", "53880978V", null, "Radilogía", 1 ,"Cira Pozo"));
-        c.save(new Cita("3","17/3/2022", "10:30", true , true ,"987654321", "53880979V", "V89", "Traumatología", 2 ,"Javier Moreno"));
+        c.save(new Cita("1","12/5/2022", "9:30", false , false , "123456789", "12345678A", null, "Traumatología" , 1,"Carlos Chinchilla"));
+        c.save(new Cita("2","28/3/2022", "10:00", false , false , "123456789", "87654321A", null, "Radilogía", 1 ,"Cira Pozo"));
+        c.save(new Cita("3","17/3/2022", "10:30", true , true ,"987654321", "12345678B", "V89", "Traumatología", 2 ,"Javier Moreno"));
         c.save(new Cita("4","30/3/2022", "11:00", true , true ,"123412341", "53880975V", "Q67", "Ginecología",2,"Alejandro Mariscal" ));
-        c.save(new Cita("5","30/3/2022", "11:30", true , true , "432143214", "53880976V", "K45", "Análisis",1,"Carlos Chinchilla" ));
+        c.save(new Cita("5","30/3/2022", "11:30", true , true , "432143214", "12345678A", "K45", "Análisis",1,"Carlos Chinchilla" ));
         c.save(new Cita("6","12/5/2022", "12:00", false , false , "123456789", "53880971V", null, "Traumatología" , 1,"Carlos Sanchez"));
-        c.save(new Cita("7","12/5/2022", "12:30", false , false , "123456789", "53880976V", null, "Radilogía" , 1,"Cira Varas"));
+        c.save(new Cita("7","12/5/2022", "12:30", false , false , "123456789", "12345678A", null, "Radilogía" , 1,"Cira Varas"));
         c.save(new Cita("8","12/5/2022", "13:00", false , false , "123456789", "53880973V", null, "Análisis" , 2,"Javier Marisca"));
         c.save(new Cita("9","12/5/2022", "13:30", false , false , "123456789", "53880977V", null, "Análisis" , 2,"Alejandro Moreno"));
-        c.save(new Cita("10","12/5/2022", "14:00", false , false , "123456789", "53880976V", null, "Traumatología" , 1,"Miguel Pozo"));
+        c.save(new Cita("10","12/5/2022", "14:00", false , false , "123456789", "12345678A", null, "Traumatología" , 1,"Miguel Pozo"));
         c.save(new Cita("12","12/5/2022", "14:30", false , false , "123456789", "53880912V", null, "Traumatología" , 1,"Javier Sanchez"));
         c.save(new Cita("12","17/3/2022", "15:00", true , true ,"987654321", "53880934V", "W77", "Traumatología", 2 ,"Cira Moreno"));
-        c.save(new Cita("13","17/3/2022", "15:30", true , true ,"987654321", "53880956V", "M19", "Traumatología", 2 ,"Carlos Mariscal"));
+        c.save(new Cita("13","17/3/2022", "15:30", true , true ,"987654321", "12345678A", "M19", "Traumatología", 2 ,"Carlos Mariscal"));
         c.save(new Cita("14","17/3/2022", "16:30", true , true ,"987654321", "53880949V", "A84", "Traumatología", 2 ,"Alvaro Pozo"));
 
 
         this.pacienteRepository = p;
-        p.save(new Paciente("53880976V","Carlos Chinchilla", "30/3/1985", "Hombre","Autismo"));
-        p.save(new Paciente("53880978V","Cira Pozo", "12/8/1994", "Mujer", "Cáncer"));
-        p.save(new Paciente("53880979V","Javier Moreno", "26/07/2000", "Hombre", "Déficit de atención e hiperactividad"));
+        p.save(new Paciente("12345678A","Carlos Chinchilla", "30/3/1985", "Hombre","Autismo"));
+        p.save(new Paciente("87654321A","Cira Pozo", "12/8/1994", "Mujer", "Cáncer"));
+        p.save(new Paciente("12345678B","Javier Moreno", "26/07/2000", "Hombre", "Déficit de atención e hiperactividad"));
         p.save(new Paciente("53880975V","Alejandro Mariscal", "3/2/1965", "Hombre", "Asma"));
         p.save(new Paciente("53880974V","Miguel Varas", "19/7/1999", "Hombre", " Artritis"));
         p.save(new Paciente("53880971V","Carlos Sanchez", "30/3/1985", "Hombre","Autismo"));
