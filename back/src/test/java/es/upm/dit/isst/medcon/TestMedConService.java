@@ -20,12 +20,10 @@ import java.util.Optional;
  import es.upm.dit.isst.medcon.model.Paciente;
  import es.upm.dit.isst.medcon.repository.PacienteRepository;
  
-
  @SpringBootTest
  public class TestMedConService{
      @Autowired
      private CitaRepository repoCitas;
-
      @Test
      final void testCita(){
          Cita cita = new Cita();
