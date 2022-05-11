@@ -37,6 +37,7 @@
 #contenedor{
   background-color: white;
   position: relative;
+  margin-bottom: 10%;
 
 }
 
@@ -66,7 +67,7 @@ input,textarea{
 .field{
   border:solid 1px #ccc;
   padding:6px;
-  width:100%;
+  width:80%;
 }
 .field:focus{
   border-color: #04AA6D;

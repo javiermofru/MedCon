@@ -1,6 +1,6 @@
 import React from "react";
 import { Card} from "react-bootstrap";
-import InputColegiado from "./InputMedico2";
+import InputColegiado from "./InputColegiado";
 import "../../Assets/Paciente/Login.css";
 
 export default function LoginMedico() {    

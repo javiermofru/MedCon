@@ -11,7 +11,7 @@ export default function SalaEspera() {
         .then(response => response.json())
         .then(response=> setCitas(response))
     startTime()
-    }, [500]);
+    });
     console.log(`http://localhost:8080/salaespera`)
     console.log(citas);
 

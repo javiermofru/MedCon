@@ -59,7 +59,7 @@ export default function CitasMedico() {
                             DNI/NIF : {data.dni}
                           </li>
                           <li>
-                            Patologías: {data.patalogias}
+                            Patologías: {data.patologias}
                           </li>
                           <li><i class="fa fa-linkedin"></i></li>
                           <li><i class="fa fa-google"></i></li>

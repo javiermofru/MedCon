@@ -38,8 +38,7 @@ export default function CitasMedico() {
 
   async function llamar(id) {
     await fetch(`http://localhost:8080/medico/${medico}/llamar/${id}`, {
-        method: 'POST',
-        mode: 'no-cors',
+        method: 'PUT',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -57,21 +56,13 @@ export default function CitasMedico() {
       .then((response) => response.json())
       .then((response) => setCitas(response));
     console.log(citas);
-    
-    fetch(`http://localhost:8080/medico/${medico}/llamar/${id}`, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    });
-  
+     
     
   }, []);
   console.log(`http://localhost:8080/medico/${medico}`)
   console.log(`http://localhost:8080/medico/${medico}/llamar/${id}`)
   console.log(citas);
+  console.log(id)
 
  
   
@@ -82,7 +73,7 @@ export default function CitasMedico() {
       <div class="btn-group btn-group-lg" role="group" aria-label="...">
       </div>
       </div>
-      <div className="container mt-3 ">
+      <div className="container mt-3 mb-3 ">
         <div>
           <h1>Tabla de citas del médico</h1>
           <div id="botones" className="btn-group btn-group-lg">
@@ -118,13 +109,13 @@ export default function CitasMedico() {
               <td>
                <Button className="bnt btn-success" onClick={() => llamar(data.id)}>
                
-               {!data.llamado ? "Llamar paciente" : "Llamado"}
+               {data.llamado ? "Llamado" : "Llamar paciente"}
 
                </Button>
               
               </td>
               <td>
-              <Button size="sm" color="danger" onClick={() => remove(data.id)}>X</Button>
+              <Button size="sm" className="btn btn-danger" onClick={() => remove(data.id)}>X</Button>
                 {/* <Link className="btn btn-success" to={data.id} id="eliminar" /*onClick={/*() => remove(`${data.id}`)} >
                   X
                 </Link> */}
