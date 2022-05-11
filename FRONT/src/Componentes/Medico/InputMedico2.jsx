@@ -4,6 +4,10 @@ import {Link} from 'react-router-dom'
 import { useState } from "react";
 import {Button, Card} from "react-bootstrap"
 import { useNavigate } from "react-router-dom";
+import {Item} from "react-contexify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+
 
 
 
@@ -12,6 +16,7 @@ export default function InputColegiado() {
     const [password, setPassword] = useState("");
     const [medicos, setMedicos] = useState([]);
     const [resultado, setResultado] = useState (false);
+    const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:8080/medico")
@@ -28,13 +33,15 @@ export default function InputColegiado() {
             }
         })
         if (resultado) {
+            
             return (true)
         }
-        else return false;
+        else {
+            
+            return false;
+        }  
             
     }
-
-
 
     function handleNumero(event) {
         setNumero(event.target.value);
@@ -70,13 +77,21 @@ export default function InputColegiado() {
                 <button
                     className="btn btn-success mt-2" 
                     onClick={() => 
-                        (autenticado()) ? navigate(`/medico/${numero}`) : ""}  
-                    >                    
-                    Ver mis citas
+                        (autenticado()) ? navigate(`/medico/${numero}`) : setDisabled(true)
+                    }  
+                >                    
+                    Ver mis citas               
                 </button>
+                <span className="text-danger mt-3" style={{display: disabled ? 'block' : 'none'}}>
+                <FontAwesomeIcon icon={faExclamationTriangle}/>
+                &nbsp;
+                Usuario o contraseña incorrecta.</span>
+                
+
+                
+                         
            
         </div>
 
-        
     );
 }

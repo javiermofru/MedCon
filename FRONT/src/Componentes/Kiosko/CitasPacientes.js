@@ -32,7 +32,7 @@ export default function CitasPaciente(){
     return (
         <div id='contenedor'>
             <div className='container mt-3 ' aria-disabled={hayCitas ? "false" : "true"}>
-                <h1>Tabla de citas del paciente</h1>
+                <h1>Citas</h1>
                 <table id='citas'>
                     <tr>
                         <th>Fecha</th>
