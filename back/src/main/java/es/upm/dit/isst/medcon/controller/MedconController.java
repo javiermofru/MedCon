@@ -37,7 +37,7 @@ public class MedconController {
         c.save(new Cita("2","28/3/2022", "10:00", false , false , "123456789", "53880978V", null, "Radilogía", 1 ,"Cira Pozo"));
         c.save(new Cita("3","17/3/2022", "12:30", true , true ,"987654321", "53880979V", "V89", "Traumatología", 2 ,"Javier Moreno"));
         c.save(new Cita("4","30/3/2022", "11:30", true , true ,"123412341", "53880975V", "Q67", "Ginecología",2,"Alejandro Mariscal" ));
-        c.save(new Cita("5","30/3/2022", "12:00", true , true , "432143214", "53880976V", "null", "Análisis",1,"Carlos Chinchilla" ));
+        c.save(new Cita("5","30/3/2022", "12:00", true , true , "432143214", "53880976V", "k45", "Análisis",1,"Carlos Chinchilla" ));
         c.save(new Cita("6","12/5/2022", "11:30", false , false , "123456789", "53880971V", null, "Traumatología" , 1,"Carlos Sanchez"));
         c.save(new Cita("7","12/5/2022", "12:00", false , false , "123456789", "53880972V", null, "Radilogía" , 1,"Cira Varas"));
         c.save(new Cita("8","12/5/2022", "12:30", false , false , "123456789", "53880973V", null, "Análisis" , 2,"Javier Marisca"));
@@ -231,3 +231,5 @@ public class MedconController {
      5º Para un médico, borrar una cita --> MEDIO HECHO
 
     */
+ 
+}
