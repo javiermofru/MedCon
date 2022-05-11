@@ -12,6 +12,7 @@ import LoginMedico from "./Componentes/Medico/LoginMedico";
 import CitasMedico from "./Componentes/Medico/CitasMedico";
 import SalaEspera from "./Componentes/SalaEspera/SalaEspera";
 import Crear2 from "./Componentes/Medico/Crear2";
+//import Crear3 from "./Componentes/Medico/crear3";
 import Pacientes from "./Componentes/Medico/Pacientes";
 import Info from "./Componentes/Medico/Info";
 //
@@ -49,7 +50,7 @@ function App() {
           <Route path="medico/:medico" element={<CitasMedico />} />
           <Route path="medico/:medico/:id" element={<CitasMedico />} />
           <Route path="medico/:medico/llamar/:id" element={<CitasMedico />} />
-          <Route path="medico/:colegiado/crear" element={<Crear2 />} />
+          <Route path="medico/:colegiado/crear" element={<Crear2/>} />
           <Route path="medico/:colegiado/pacientes" element={<Pacientes />}/>
           <Route path="medico/:colegiado/pacientes/:dni" element={<Info />}/>
           <Route path="salaespera" element={<SalaEspera />}/>

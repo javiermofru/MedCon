@@ -7,6 +7,8 @@ import { ReactDOM } from "react";
 import "./../../Assets/hora.css"
 import "./../../Assets/crear.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from 'axios';
+
 import {faCircleLeft, faUser, faHashtag, faIdCard, faFilePen, faClock, faCalendar } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -32,10 +34,13 @@ export default function Crear() {
 
   
   async function handleSubmit(event) {
-    await fetch(`http://localhost:8080/${colegiado}/crear`, {
+    let Cita = {id: nid, fecha:  nfecha, hora: nhora, llamado: nllamado, registrado: nregistrado, medico: nmedico, dni: ndni, ticketTurno: nticketTurno, razon: nrazon, sala_consulta: nsala_consulta, nombrePaciente: nnombrePaciente};
+    console.log('+++++'+Cita)
+    await axios.post("http://localhost:8080/medico/crear", Cita);
+    /* await fetch(`http://localhost:8080/medico/${colegiado}/crear`, {
           method:'POST', 
           mode: 'no-cors',
-          body: JSON.stringify({
+          body:{
             id: nid,
             fecha: nfecha,
             hora: nhora,
@@ -47,13 +52,13 @@ export default function Crear() {
             razon: nrazon,
             sala_consulta: nsala_consulta,
             nombrePaciente: nnombrePaciente
-          }),
+          },
           headers: {
           // 'Accept': 'application/json',
             'Content-Type': 'application/json',
           },
           
-    },[]);  
+    },[]);   */
         
   }
 
@@ -71,13 +76,13 @@ export default function Crear() {
       <FontAwesomeIcon className='btn-success bg-success rounded-circle text-white mt-3 mb-2 border border-3 border-success ' icon={faCircleLeft} size="2x" onClick={() => navigate(`/medico/${colegiado}`)} />
 
       <form>
-        <div class="form-row align-items-center">
+        <div className="form-row align-items-center">
           
-        <div class="col-auto">
-            <label class="sr-only" for="inlineFormInputGroup">TicketID</label>
-            <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
+        <div className="col-auto">
+            <label className="sr-only" htmlFor="inlineFormInputGroup">TicketID</label>
+            <div className="input-group mb-2">
+              <div className="input-group-prepend">
+                <div className="input-group-text">
                 <FontAwesomeIcon icon={faHashtag} size="2x"/>
 
                 </div>
@@ -86,11 +91,11 @@ export default function Crear() {
             </div>
           </div>
           
-          <div class="col-auto">
-            <label class="sr-only" for="inlineFormInputGroup">Paciente</label>
-            <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">      
+          <div className="col-auto">
+            <label className="sr-only" htmlFor="inlineFormInputGroup">Paciente</label>
+            <div className="input-group mb-2">
+              <div className="input-group-prepend">
+                <div className="input-group-text">      
                   <FontAwesomeIcon icon={faUser} size="2x"/>
                 </div>
               </div>
@@ -98,11 +103,11 @@ export default function Crear() {
             </div>
         </div>
 
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">DNI</label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">      
+        <div className="col-auto">
+          <label className="sr-only" htmlFor="inlineFormInputGroup">DNI</label>
+          <div className="input-group mb-2">
+            <div className="input-group-prepend">
+              <div className="input-group-text">      
                 <FontAwesomeIcon icon={faIdCard} size="2x"/>
               </div>
             </div>
@@ -110,11 +115,11 @@ export default function Crear() {
           </div>
         </div>
 
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">RAZÓN</label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">      
+        <div className="col-auto">
+          <label className="sr-only" htmlFor="inlineFormInputGroup">RAZÓN</label>
+          <div className="input-group mb-2">
+            <div className="input-group-prepend">
+              <div className="input-group-text">      
                 <FontAwesomeIcon icon={faFilePen} size="2x"/>
               </div>
             </div>
@@ -122,11 +127,11 @@ export default function Crear() {
           </div>
         </div>
 
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">HORA</label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">      
+        <div className="col-auto">
+          <label className="sr-only" htmlFor="inlineFormInputGroup">HORA</label>
+          <div className="input-group mb-2">
+            <div className="input-group-prepend">
+              <div className="input-group-text">      
                 <FontAwesomeIcon icon={faClock} size="2x"/>
               </div>
             </div>
@@ -134,11 +139,11 @@ export default function Crear() {
           </div>
         </div>
 
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">FECHA</label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">      
+        <div className="col-auto">
+          <label className="sr-only" htmlFor="inlineFormInputGroup">FECHA</label>
+          <div className="input-group mb-2">
+            <div className="input-group-prepend">
+              <div className="input-group-text">      
                 <FontAwesomeIcon icon={faCalendar} size="2x"/>
               </div>
             </div>
@@ -147,8 +152,8 @@ export default function Crear() {
         </div>
           
       </div>
-      <div class="col-auto">
-        <button onClick={() => handleSubmit()} class="btn btn-success mb-2">Añadir cita</button>
+      <div className="col-auto">
+        <button onClick={() => handleSubmit()} className="btn btn-success mb-2">Añadir cita</button>
       </div>
     </form>  
   

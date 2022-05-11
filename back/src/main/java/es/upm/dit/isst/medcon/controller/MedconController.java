@@ -1,5 +1,7 @@
 package es.upm.dit.isst.medcon.controller;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,16 +39,16 @@ public class MedconController {
         c.save(new Cita("2","28/3/2022", "10:00", false , false , "123456789", "53880978V", null, "Radilogía", 1 ,"Cira Pozo"));
         c.save(new Cita("3","17/3/2022", "10:30", true , true ,"987654321", "53880979V", "V89", "Traumatología", 2 ,"Javier Moreno"));
         c.save(new Cita("4","30/3/2022", "11:00", true , true ,"123412341", "53880975V", "Q67", "Ginecología",2,"Alejandro Mariscal" ));
-        c.save(new Cita("5","30/3/2022", "11:30", true , true , "432143214", "53880976V", "k45", "Análisis",1,"Carlos Chinchilla" ));
+        c.save(new Cita("5","30/3/2022", "11:30", true , true , "432143214", "53880976V", "K45", "Análisis",1,"Carlos Chinchilla" ));
         c.save(new Cita("6","12/5/2022", "12:00", false , false , "123456789", "53880971V", null, "Traumatología" , 1,"Carlos Sanchez"));
         c.save(new Cita("7","12/5/2022", "12:30", false , false , "123456789", "53880976V", null, "Radilogía" , 1,"Cira Varas"));
         c.save(new Cita("8","12/5/2022", "13:00", false , false , "123456789", "53880973V", null, "Análisis" , 2,"Javier Marisca"));
         c.save(new Cita("9","12/5/2022", "13:30", false , false , "123456789", "53880977V", null, "Análisis" , 2,"Alejandro Moreno"));
         c.save(new Cita("10","12/5/2022", "14:00", false , false , "123456789", "53880976V", null, "Traumatología" , 1,"Miguel Pozo"));
         c.save(new Cita("12","12/5/2022", "14:30", false , false , "123456789", "53880912V", null, "Traumatología" , 1,"Javier Sanchez"));
-        c.save(new Cita("12","17/3/2022", "15:00", true , true ,"987654321", "53880934V", null, "Traumatología", 2 ,"Cira Moreno"));
-        c.save(new Cita("13","17/3/2022", "15:30", true , true ,"987654321", "53880956V", null, "Traumatología", 2 ,"Carlos Mariscal"));
-        c.save(new Cita("14","17/3/2022", "16:30", true , true ,"987654321", "53880949V", null, "Traumatología", 2 ,"Alvaro Pozo"));
+        c.save(new Cita("12","17/3/2022", "15:00", true , true ,"987654321", "53880934V", "W77", "Traumatología", 2 ,"Cira Moreno"));
+        c.save(new Cita("13","17/3/2022", "15:30", true , true ,"987654321", "53880956V", "M19", "Traumatología", 2 ,"Carlos Mariscal"));
+        c.save(new Cita("14","17/3/2022", "16:30", true , true ,"987654321", "53880949V", "A84", "Traumatología", 2 ,"Alvaro Pozo"));
 
 
         this.pacienteRepository = p;
@@ -146,8 +148,8 @@ public class MedconController {
         return ResponseEntity.ok(currentCita);
     } */
 
-    @CrossOrigin
-    @PostMapping("/medico/{colegiado}/crear")
+    @CrossOrigin(origins = "*")
+    @PostMapping("/medico/crear")
     ResponseEntity<Cita> newCita(@RequestBody Cita newCita) {
       
       Cita cita = new Cita();
@@ -171,6 +173,17 @@ public class MedconController {
       citaRepository.save(cita);
 
       return ResponseEntity.ok().build();
+
+    }
+    
+
+    @PostMapping("/medico/crear/2")
+
+    ResponseEntity<Cita> create(@RequestBody Cita newCita) throws URISyntaxException {
+
+      Cita result = citaRepository.save(newCita);
+
+      return ResponseEntity.created(new URI("/medico/{colegiado}/crear" + result.getId())).body(result);
 
     }
     
